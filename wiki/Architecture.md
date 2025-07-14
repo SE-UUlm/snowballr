@@ -12,35 +12,35 @@ typed interface.
 - Sends and receives data via gRPC using generated stubs.
 
 ### [Backend](https://github.com/SE-UUlm/snowballr-backend)
-- Built with [Kotlin](https://kotlinlang.org/) using gRPC.
-- Provides application logic
-- Handles data processing, and database access.
-- Sends and receives calls defined in the API.
+- Built with [Kotlin](https://kotlinlang.org/).
+- Provides the application logic.
+- Handles data processing and database access.
+- Sends and receives data via gRPC using generated stubs.
 
 #### Facade layer
-- The entry point for external requests
-- Checks the requests for authentication, i.e. whether they originate from logged-in users 
-- Checks the requests for validity, i.e. whether their content is valid, e.g. valid emails, values or text lengths, valid emails, value ranges or text lengths
-- Interception of errors from the underlying layers in order to return semantically correct status codes
-- All gRPC interfaces are provided here
+- The entry point for external requests.
+- Checks the requests for authentication, i.e., whether they originate from logged-in users. 
+- Checks the requests for validity, i.e., whether their content is valid, e.g., valid emails or text lengths.
+- Interception of errors from the underlying layers to return semantically correct status codes.
+- All gRPC interfaces are provided here.
   
 #### Service layer
-- Contains the business logic and orchestrates the application process
-- Checks whether a user has the corresponding rights (authorization)
+- Contains the business logic and orchestrates the application process.
+- Checks whether a user has the corresponding rights (authorization).
 
 #### Repository layer
-- Communication with the database
-- Each service uses its own repositories to encapsulate access to entities such as users, projects or papers
+- Communication with the database.
+- Each service uses its own repositories to encapsulate access to entities such as users, projects or papers.
+> **Note:** The architecture of the backend is described in more detail in the [backend wiki](https://github.com/SE-UUlm/snowballr-backend/wiki/Architecture).
 
 ### [API](https://github.com/SE-UUlm/snowballr-api)
-- uses [gRPC](https://grpc.io/) for the communication between frontend and backend
+- Uses [gRPC](https://grpc.io/) for the communication between frontend and backend.
 - Protocol Buffers define the communication schema.
-- Defines the calls implemented in the backend.
 
 ### Database
 - [PostgreSQL](https://www.postgresql.org/) database stores all persistent data.
-- Accessed only via the repository layer in the backend (for more information about the backend architecture see [backend architecture](https://github.com/SE-UUlm/snowballr-backend/blob/develop/wiki/Architecture.md))
-- uses [Exposed](https://github.com/JetBrains/Exposed) DSL to build SQL statements
+- Accessed only via the repository layer in the backend (for more information about the backend architecture see [backend architecture](https://github.com/SE-UUlm/snowballr-backend/blob/develop/wiki/Architecture.md)).
+- Uses [Exposed](https://github.com/JetBrains/Exposed) as an ORM, i.e., use the Exposed DSL to build SQL statements.
 
 ## Technologies Used
 
@@ -51,13 +51,9 @@ typed interface.
 | API      | gRPC, Protocol Buffers        |
 | Database | PostgreSQL, Exposed           |
 
----
+## Database Schema
 
-# Database Schema
-
-The following illustration shows a general ER-Diagram of the database structure used by the [backend](https://github.com/SE-UUlm/snowballr-backend). For 
-more information about to access the database or a more detailed database have a look at the [repository layer](https://github.com/SE-UUlm/snowballr-backend/blob/develop/wiki/Contributing.md#repository) in the backend. 
-
+The following illustration shows a general ER-Diagram of the database structure used by the backend.
 
 ![snowballR-database-schema.svg](assets/snowballR-database-schema.svg)
 

@@ -2,7 +2,7 @@
 
 Welcome to the **SnowballR** project! This page will give you a quick overview over the project.
 
-**SnowballR** is a web-based tool supporting Systematic Literature Reviews (SLR). The goal of **SnowballR** is to automate reference retrieval, facilitate transparent inclusion/exclusion decisions, and maintain a clear audit trail of the review process..
+**SnowballR** is a web-based tool supporting Systematic Literature Reviews (SLR). The goal of **SnowballR** is to automate reference retrieval, facilitate transparent inclusion/exclusion decisions, and maintain a clear audit trail of the review process.
 
 Users can create dedicated **projects** and invite other collaborators to participate. Each project follows a structured paper selection process based on the [snowballing](https://en.wikipedia.org/wiki/Snowball_sampling) methodology, which helps to identify relevant literature through citation networks.
 

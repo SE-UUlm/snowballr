@@ -6,10 +6,8 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
 - [Deployment](#deployment)
   - [Service Overview](#service-overview)
   - [Routing](#routing)
-- [Versioning Guidline](#versioning-guideline)
+- [Versioning Guideline](#versioning-guideline)
 - [Teamscale Integration](#teamscale-integration)
-
----
 
 ## Contribution Workflow & Conventions
 ### Workflow
@@ -19,7 +17,7 @@ It's up to you, whether you create a draft pull request immediately or wait unti
 implementation. While creating a draft pull request gives you direct feedback from the CI/CD pipeline, it also clutters
 the pull request list. So it's up to you whether you want to create a draft pull request or not.
 
-When starting to work on an issue, ensure that the issue is assigned to you and part of our project `SnowballR`.
+When starting to work on an issue, ensure that the issue is assigned to you and part of our project SnowballR.
 Furthermore, make sure you set the status to `In progress` and the iteration to the current one (if that is not already
 done). **Prefer** to work on issues that are already assigned to you and part of the current iteration/sprint.
 
@@ -56,13 +54,11 @@ issue is a bug, we use `fix/`, if it is a feature, we use `feat/`, etc. **Prefer
 create branches from an issue as it already provides `<issue-number>-<short-description>` and you only have to add the
 `prefix/` part.
 
----
-
 ## Deployment
 
 This project uses [Docker](https://www.docker.com/) for local and production deployments. All services are orchestrated via [Docker Compose](https://docs.docker.com/compose/), with [Caddy](https://caddyserver.com/) serving as a reverse proxy to route HTTP traffic to the appropriate service.
 
-Currently, deployments are performed nightly, using the latest version of the API and the current state of the `development` branch of [frontend](https://github.com/SE-UUlm/snowballr-frontend) and [backend](https://github.com/SE-UUlm/snowballr-backend). In the future, deployments should be pinned to specific versions and aligned with project releases to ensure stability and reproducibility.
+Currently, deployments are performed nightly, using the latest version of the API and the current state of the `development` branch of the [frontend](https://github.com/SE-UUlm/snowballr-frontend). In the future, the versions should be pinned to and aligned with releases of the system parts to ensure stability and reproducibility.
 
 ### Service Overview
 
@@ -74,21 +70,17 @@ Currently, deployments are performed nightly, using the latest version of the AP
 
 ### Routing
 
-Caddy handles incoming HTTP(S) traffic and routes it based on request path with the host: [snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/)):
-- /docs/* → forwards to api-docs
-- /api/* → forwards to mock-backend
+Caddy handles incoming HTTP(S) traffic and routes it based on the request path with the host [snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/))
+- `/docs/*` → forwards to api-docs
+- `/api/*` → forwards to mock-backend
 - All other paths → served by the frontend service
-
----
 
 ## Versioning Guideline
 
 For the versioning we follow [Semantic Versioning](https://semver.org/).
-When a new version should be published, document the changes in a changelog (following the guidelines of [Common Changelog](https://common-changelog.org/), tag the code in Git and a release will be automatically created and published.
+When a new version should be published, document the changes in a changelog (following the guidelines of [Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and published.
 
->**Note** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
-
----
+>**Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
 
 ## Teamscale Integration
 
