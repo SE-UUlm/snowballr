@@ -1,13 +1,18 @@
-
 {$DOMAIN} {
 	redir /docs /docs/ permanent
 	redir /api /api/ permanent
+	redir /sonar /sonar/ permanent
 
 	handle_path /docs/* {
 		reverse_proxy http://api-docs
 	}
 	handle_path /api/* {
 		reverse_proxy http://mock-backend:8002
+	}
+	handle /sonar/* {
+		reverse_proxy http://sonarqube:9000 {
+			header_up Host {http.request.host}
+		}
 	}
 
 	reverse_proxy http://frontend:8000
