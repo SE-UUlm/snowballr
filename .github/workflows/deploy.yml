@@ -34,8 +34,8 @@ jobs:
       # - name: Stop Previous Deployment
       #   run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- docker compose -p snowballr-deploy down
 
-      - name: Copy Caddy Config
-        run: scp ./Caddyfile "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}:${{ vars.WORK_DIR }}/"
+      - name: Copy Config Files
+        run: scp ./{Caddyfile,Dockerfile.proxy,compose.yaml} "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}:${{ vars.WORK_DIR }}/"
 
       - name: Deploy Using Docker Compose
-        run: WORK_DIR="${{ vars.WORK_DIR }}" DOMAIN="${{ vars.REMOTE_DOMAIN }}" DOCKER_HOST="ssh://${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" docker compose up -d --pull always
+        run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'cd "${{ vars.WORK_DIR }}" && export WORK_DIR="${{ vars.WORK_DIR }}" && export DOMAIN="${{ vars.REMOTE_DOMAIN }}" && docker compose up -d --pull always'
