@@ -1,10 +1,24 @@
 
 services:
+  database:
+    image: postgres:16.1-alpine3.19
+    env_file: database.env
+    ports:
+        - 5432:5432
+    volumes:
+        - ${WORK_DIR:?error}/database:/var/lib/postgresql/data
+    networks:
+        - snowballr-network
+
+  # frontend-mock:
+  #   image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
+  #   env_file: frontend-mock.env
+  #   networks:
+  #     - snowballr-network
+
   frontend:
     image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
-    environment:
-      PORT: 8000
-      PUBLIC_API_BASE_URL: "https://${DOMAIN}/api"
+    env_file: frontend.env
     networks:
       - snowballr-network
       
@@ -14,12 +28,15 @@ services:
     networks:
       - snowballr-network
 
-  mock-backend:
-    image: ghcr.io/se-uulm/snowballr-mock-backend:main
-    environment:
-      GRPC_WEB_PORT: 8002
-      ENABLE_DUMMY_ADMIN: true
-      EXAMPLE_DATA_FILE: "standardData.ts"
+  # backend-mock:
+  #   image: ghcr.io/se-uulm/snowballr-mock-backend:main
+  #   env_file: backend-mock.env
+  #   networks:
+  #     - snowballr-network
+
+  backend:
+    image: ghcr.io/se-uulm/snowballr-backend:latest-dev
+    env_file: backend.env
     networks:
       - snowballr-network
 
@@ -38,6 +55,18 @@ services:
     networks:
       - snowballr-network
       - snowballr-host
+
+  proxy:
+    build:
+        context: .
+        dockerfile: Dockerfile.proxy
+    ports:
+        - "${WEB_PORT:-8081}:${WEB_PORT:-8081}"
+    command:
+        # Point to the backend on the machine's host
+        - --backend_addr=host.docker.internal:${PORT:-8080}
+        - --allowed_origins=http?://${DOMAIN}
+        - --run_tls_server=false # Don't require TLS Handled by proxy
 
 networks:
   snowballr-network:
