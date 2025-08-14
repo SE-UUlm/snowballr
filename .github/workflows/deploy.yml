@@ -15,13 +15,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Setup SSH
         run: |
             mkdir -p ~/.ssh
@@ -37,5 +30,8 @@ jobs:
       - name: Copy Config Files
         run: scp ./{Caddyfile,Dockerfile.proxy,compose.yaml} "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}:${{ vars.WORK_DIR }}/"
 
-      - name: Deploy Using Docker Compose
+      - name: Login on Remote Machine
+        run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'docker login ghcr.io -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}"'
+
+      - name: Start Docker Compose on Remote Machine
         run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'cd "${{ vars.WORK_DIR }}" && export WORK_DIR="${{ vars.WORK_DIR }}" && export DOMAIN="${{ vars.REMOTE_DOMAIN }}" && docker compose up -d --pull always'
