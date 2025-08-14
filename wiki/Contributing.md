@@ -62,11 +62,11 @@ Currently, deployments are performed nightly, using the latest version of the AP
 
 ### Service Overview
 
-| Service        | Description                    | Port       |
-|----------------|--------------------------------|------------|
-| `frontend`     | Svelte-based GUI               | `8000`     |
-| `mock-backend` | Mock backend (for testing) | `8002`     |
-| `api-docs`     | Sabledocs for gRPC docs   | `8000` with path `/docs` |
+| Service        | Description                | Port                     |
+|----------------|----------------------------|--------------------------|
+| `frontend`     | Svelte-based GUI           | `8000`                   |
+| `mock-backend` | Mock backend (for testing) | `8002`                   |
+| `api-docs`     | Sabledocs for gRPC docs    | `8000` with path `/docs` |
 
 ### Routing
 

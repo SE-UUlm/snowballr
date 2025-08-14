@@ -44,12 +44,12 @@ typed interface.
 
 ## Technologies Used
 
-| Component | Technology                    |
-|----------|-------------------------------|
-| Frontend | React, TypeScript, Node.js    |
-| Backend  | Kotlin, gRPC, Gradle          |
-| API      | gRPC, Protocol Buffers        |
-| Database | PostgreSQL, Exposed           |
+| Component | Technology                 |
+|-----------|----------------------------|
+| Frontend  | React, TypeScript, Node.js |
+| Backend   | Kotlin, gRPC, Gradle       |
+| API       | gRPC, Protocol Buffers     |
+| Database  | PostgreSQL, Exposed        |
 
 ## Database Schema
 
