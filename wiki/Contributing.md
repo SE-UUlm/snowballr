@@ -10,6 +10,7 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
 - [Teamscale Integration](#teamscale-integration)
 
 ## Contribution Workflow & Conventions
+
 ### Workflow
 
 Starting from an issue, we create a branch with the name of the issue (see [Commits & Branches](#commits--branches)).
