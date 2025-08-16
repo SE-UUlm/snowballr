@@ -26,4 +26,4 @@ The platform ensures transparency, collaboration, and efficiency in literature s
 - The **[backend](https://github.com/SE-UUlm/snowballr-backend)** listens for incoming gRPC requests, processes the requested operations, and responds with appropriate gRPC messages based on the application logic.
 
 
-For a comprehensive overview of the project, see [Getting Started](./wiki/Getting-Started.md).
+For a comprehensive overview of the project, see [Getting Started](https://github.com/SE-UUlm/snowballr/wiki/Getting-Started).
