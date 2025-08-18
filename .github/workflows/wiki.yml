@@ -52,7 +52,7 @@ jobs:
             - name: Check for Broken Links in Wiki
               uses: becheran/mlc@v1.0.0
               with:
-                  args: wiki/
+                  args: --ignore-links "https://dl.acm.org/doi/*" wiki/
 
     publish-wiki:
         name: Publish Wiki

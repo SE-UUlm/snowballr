@@ -8,12 +8,12 @@ how we develop this project. Nevertheless, by following the steps on this page t
 
 First, make sure you have installed the following:
 
-- [Docker](https://www.docker.com/get-started)
+- [Docker](https://www.docker.com/get-started/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - [Java 21](https://adoptium.net/) (for backend)
-- [Node.js 22](https://nodejs.org/) (for frontend)
+- [Node.js 22](https://nodejs.org/en) (for frontend)
 - IDE of your choice (e.g. [IntelliJ IDEA](https://www.jetbrains.com/idea/download/),
-  [WebStorm](https://www.jetbrains.com/webstorm/download) or [VS Code](https://code.visualstudio.com/download))
+  [WebStorm](https://www.jetbrains.com/webstorm/download/) or [VS Code](https://code.visualstudio.com/download))
 
 ## Next Steps
 
