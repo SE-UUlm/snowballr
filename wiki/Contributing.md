@@ -1,6 +1,6 @@
 On this page, we explain how to contribute to the SnowballR project. We cover the following topics:
 
-- [Contribution Workflow & Conventions](#contribution-workflow--conventions)
+- [Contribution Workflow \& Conventions](#contribution-workflow--conventions)
   - [Workflow](#workflow)
   - [Commits \& Branches](#commits--branches)
 - [Deployment](#deployment)
@@ -10,6 +10,7 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
 - [Teamscale Integration](#teamscale-integration)
 
 ## Contribution Workflow & Conventions
+
 ### Workflow
 
 Starting from an issue, we create a branch with the name of the issue (see [Commits & Branches](#commits--branches)).
@@ -56,21 +57,27 @@ create branches from an issue as it already provides `<issue-number>-<short-desc
 
 ## Deployment
 
-This project uses [Docker](https://www.docker.com/) for local and production deployments. All services are orchestrated via [Docker Compose](https://docs.docker.com/compose/), with [Caddy](https://caddyserver.com/) serving as a reverse proxy to route HTTP traffic to the appropriate service.
+This project uses [Docker](https://www.docker.com/) for local and production deployments. All services are orchestrated
+via [Docker Compose](https://docs.docker.com/compose/), with [Caddy](https://caddyserver.com/) serving as a reverse
+proxy to route HTTP traffic to the appropriate service.
 
-Currently, deployments are performed nightly, using the latest version of the API and the current state of the `development` branch of the [frontend](https://github.com/SE-UUlm/snowballr-frontend). In the future, the versions should be pinned to and aligned with releases of the system parts to ensure stability and reproducibility.
+Currently, deployments are performed nightly, using the latest version of the API and the current state of the `develop`
+branch of the [frontend](https://github.com/SE-UUlm/snowballr-frontend/tree/develop). In the future, the versions should
+be pinned to and aligned with releases of the system parts to ensure stability and reproducibility.
 
 ### Service Overview
 
-| Service        | Description                    | Port       |
-|----------------|--------------------------------|------------|
-| `frontend`     | Svelte-based GUI               | `8000`     |
-| `mock-backend` | Mock backend (for testing) | `8002`     |
-| `api-docs`     | Sabledocs for gRPC docs   | `8000` with path `/docs` |
+| Service        | Description                | Port                     |
+|----------------|----------------------------|--------------------------|
+| `frontend`     | Svelte-based GUI           | `8000`                   |
+| `mock-backend` | Mock backend (for testing) | `8002`                   |
+| `api-docs`     | Sabledocs for gRPC docs    | `8000` with path `/docs` |
 
 ### Routing
 
-Caddy handles incoming HTTP(S) traffic and routes it based on the request path with the host [snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/))
+Caddy handles incoming HTTP(S) traffic and routes it based on the request path with the host
+[snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/).
+
 - `/docs/*` → forwards to api-docs
 - `/api/*` → forwards to mock-backend
 - All other paths → served by the frontend service
@@ -78,16 +85,18 @@ Caddy handles incoming HTTP(S) traffic and routes it based on the request path w
 ## Versioning Guideline
 
 For the versioning we follow [Semantic Versioning](https://semver.org/).
-When a new version should be published, document the changes in a changelog (following the guidelines of [Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and published.
+When a new version should be published, document the changes in a changelog (following the guidelines of
+[Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and
+published.
 
 >**Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
 
 ## Teamscale Integration
 
-We use [Teamscale](https://exia.informatik.uni-ulm.de/teamscale) for analyzing, monitoring and improving the quality of our project.
-To set up the integration with your IDE follow the instructions online:
+We use [Teamscale](https://exia.informatik.uni-ulm.de/teamscale) for analyzing, monitoring and improving the quality of
+our project. To set up the integration with your IDE follow the instructions online:
 
-* [IntelliJ IDEA](https://docs.teamscale.com/howto/integrating-with-your-ide/intellij/)
-* [VS Code](https://docs.teamscale.com/howto/integrating-with-your-ide/visual-studio-code/)
+- [IntelliJ IDEA](https://docs.teamscale.com/howto/integrating-with-your-ide/intellij/)
+- [VS Code](https://docs.teamscale.com/howto/integrating-with-your-ide/visual-studio-code/)
 
 Note that the configuration file was already added, and you only have to connect the plugin to the server.
