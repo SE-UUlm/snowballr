@@ -93,7 +93,7 @@ published.
 
 ## Teamscale Integration
 
-We use [Teamscale](https://exia.informatik.uni-ulm.de/teamscale) for analyzing, monitoring and improving the quality of
+We use [Teamscale](https://teamscale.com/) for analyzing, monitoring and improving the quality of
 our project. To set up the integration with your IDE follow the instructions online:
 
 - [IntelliJ IDEA](https://docs.teamscale.com/howto/integrating-with-your-ide/intellij/)
