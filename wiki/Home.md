@@ -15,7 +15,7 @@ systematic identification of relevant literature that may have been overlooked i
 the completeness of the literature search.
 
 | ![Snowballing Procedure](./assets/snowballing.png) |
-| :------------------------------------------------: |
+|:--------------------------------------------------:|
 |          _Snowballing Procedure [\[1\]]_           |
 
 #### Requirements
