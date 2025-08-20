@@ -50,7 +50,7 @@ typed interface.
 
 - [PostgreSQL](https://www.postgresql.org/) database stores all persistent data.
 - Accessed only via the repository layer in the backend (for more information about the backend architecture see
-  [backend architecture](https://github.com/SE-UUlm/snowballr-backend/blob/develop/wiki/Architecture.md)).
+  [backend architecture](https://github.com/SE-UUlm/snowballr-backend/wiki/Architecture)).
 - Uses [Exposed](https://github.com/JetBrains/Exposed) as an ORM, i.e., use the Exposed DSL to build SQL statements.
 
 ## Technologies Used
