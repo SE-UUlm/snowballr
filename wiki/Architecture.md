@@ -66,8 +66,8 @@ typed interface.
 
 The following illustration shows a general ER-Diagram of the database structure used by the backend.
 
-![snowballR-database-schema.svg](./assets/snowballR-database-schema.svg)
+![snowballR-database-schema.svg](./assets/snowballR-ER.svg)
 
 The following illustration shows a more detailed version of the database schema:
 
-![snowballr-database-schema-detailed.svg](./assets/snowballr-database-schema-detailed.svg)
+![snowballr-database-schema-detailed.svg](./assets/snowballr-database-schema.svg)
