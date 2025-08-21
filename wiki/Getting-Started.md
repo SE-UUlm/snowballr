@@ -1,8 +1,10 @@
 ## Getting Started with SnowballR
 
 This guide will help you set up your development environment and get your first code changes running.
->**Note**: It is recommended to read the [Contributing page](./Contributing.md) first to get a general understanding of
-how we develop this project. Nevertheless, by following the steps on this page the SnowballR code can be run.
+
+>**Note**: It is recommended to read the [Contributing page](https://github.com/SE-UUlm/snowballr/wiki/Contributing)
+> first to get a general understanding of how we develop this project. Nevertheless, by following the steps on this page
+> the SnowballR code can be run.
 
 ## Prerequisites
 

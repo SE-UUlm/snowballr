@@ -15,8 +15,10 @@ systematic identification of relevant literature that may have been overlooked i
 the completeness of the literature search.
 
 | ![Snowballing Procedure](./assets/snowballing.png) |
-| :------------------------------------------------: |
-|          _Snowballing Procedure [\[1\]]_           |
+|:--------------------------------------------------:|
+|            _Snowballing Procedure[^1]_             |
+
+[^1]: [Claes Wohlin. "Guidelines for snowballing in systematic literature studies and a replication in software engineering"](https://dl.acm.org/doi/10.1145/2601248.2601268)
 
 #### Requirements
 
@@ -27,11 +29,3 @@ the completeness of the literature search.
 - Export of papers and SLR results
 - User-defined filters and search functions
 - Support during the review process
-
----
-
-[\[1\]] Claes Wohlin. “Guidelines for snowballing in systematic literature studies and a replication in software engineering”
-
-<!-- Links -->
-
-[\[1\]]: https://dl.acm.org/doi/10.1145/2601248.2601268
