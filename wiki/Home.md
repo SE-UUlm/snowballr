@@ -1,4 +1,3 @@
-
 **SnowballR** is a Snowballing-SLR Web Application. Made to improve the process of creating and conducting SLRs.
 
 #### SLR
