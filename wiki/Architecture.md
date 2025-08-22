@@ -1,6 +1,6 @@
 ## System Architecture
 
-The **SnowballIR** backend follows the modular and expandable Use Case Driven architecture. The division into clearly
+The **SnowballR** backend follows the modular and expandable Use Case Driven architecture. The division into clearly
 separated layers enables high maintainability and simple testability. We also achieve clear data flows as a result.
 Communication between the frontend and backend takes place via gRPC, which ensures an efficient and strictly
 typed interface.
@@ -66,8 +66,8 @@ typed interface.
 
 The following illustration shows a general ER-Diagram of the database structure used by the backend.
 
-![snowballR-database-schema.svg](./assets/snowballR-database-schema.svg)
+![snowballR-database-schema.svg](./assets/snowballR-ER.svg)
 
 The following illustration shows a more detailed version of the database schema:
 
-![snowballr-database-schema-detailed.svg](./assets/snowballr-database-schema-detailed.svg)
+![snowballr-database-schema-detailed.svg](./assets/snowballr-database-schema.svg)
