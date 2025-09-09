@@ -34,4 +34,4 @@ jobs:
         run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'docker login ghcr.io -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}"'
 
       - name: Start Docker Compose on Remote Machine
-        run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'cd "${{ vars.WORK_DIR }}" && export WORK_DIR="${{ vars.WORK_DIR }}" && export DOMAIN="${{ vars.REMOTE_DOMAIN }}" && docker compose up -d --pull always'
+        run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'cd "${{ vars.WORK_DIR }}" && export WORK_DIR="${{ vars.WORK_DIR }}" && export PROD_DOMAIN="${{ vars.REMOTE_DOMAIN }}" && export DEV_DOMAIN="${{ vars.REMOTE_DEV_DOMAIN }}" && docker compose up -d --pull always'
