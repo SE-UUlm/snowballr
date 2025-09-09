@@ -1,10 +1,14 @@
+(docs-config) {
+	handle_path /docs/* {
+		reverse_proxy http://api-docs
+	}
+	redir /docs /docs/ permanent
+}
 
+# Reverse proxy configuration for production setup
 {$PROD_DOMAIN} {
-	# redir /docs /docs/ permanent
+	import docs-config
 
-	# handle_path /docs/* {
-	#    reverse_proxy http://api-docs
-	# }
 	handle_path /api/* {
 		reverse_proxy http://proxy:9100
 	}
@@ -12,14 +16,12 @@
 	reverse_proxy http://frontend:8000
 }
 
+# Reverse proxy configuration for development setup
 {$DEV_DOMAIN} {
-	redir /docs /docs/ permanent
+	import docs-config
 
-	handle_path /docs/* {
-		reverse_proxy http://api-docs
-	}
 	handle_path /api/* {
-	    reverse_proxy http://backend-mock:9101
+		reverse_proxy http://backend-mock:9101
 	}
 
 	reverse_proxy http://frontend-mock:8001
