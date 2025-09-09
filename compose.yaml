@@ -10,29 +10,29 @@ services:
     networks:
         - snowballr-network
 
-  # frontend-mock:
-  #   image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
-  #   env_file: frontend-mock.env
-  #   networks:
-  #     - snowballr-network
+  frontend-mock:
+    image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
+    env_file: frontend-mock.env
+    networks:
+    - snowballr-network
 
   frontend:
     image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
     env_file: frontend.env
     networks:
       - snowballr-network
-      
+
   api-docs:
     image: ghcr.io/se-uulm/snowballr-api/docs:main
     hostname: "api-docs"
     networks:
       - snowballr-network
 
-  # backend-mock:
-  #   image: ghcr.io/se-uulm/snowballr-mock-backend:main
-  #   env_file: backend-mock.env
-  #   networks:
-  #     - snowballr-network
+  backend-mock:
+    image: ghcr.io/se-uulm/snowballr-mock-backend:main
+    env_file: backend-mock.env
+    networks:
+        - snowballr-network
 
   backend:
     image: ghcr.io/se-uulm/snowballr-backend:latest-dev
@@ -43,7 +43,8 @@ services:
   caddy:
     image: caddy:2.10.0
     environment:
-      DOMAIN: ${DOMAIN:?error}
+      PROD_DOMAIN: ${PROD_DOMAIN:?error}
+      DEV_DOMAIN: ${DEV_DOMAIN:?error}
     ports:
       - "80:80"
       - "443:443"
@@ -65,7 +66,7 @@ services:
     command:
         # Point to the backend on the machine's host
         - --backend_addr=host.docker.internal:${PORT:-8080}
-        - --allowed_origins=http?://${DOMAIN}
+        - --allowed_origins=http?://${PROD_DOMAIN}
         - --run_tls_server=false # Don't require TLS Handled by proxy
 
 networks:
@@ -74,10 +75,10 @@ networks:
     driver: ipvlan
     internal: true
     external: false
-    
+
   snowballr-host:
     name: snowballr-host
     driver: bridge
     internal: false
     external: false
-    
+
