@@ -1,20 +1,26 @@
 
-{$DOMAIN} {
-	redir /docs /docs/ permanent
-	# redir /mock/api /mock/api/ permanent
+{$PROD_DOMAIN} {
+	# redir /docs /docs/ permanent
 
-	handle_path /docs/* {
-		reverse_proxy http://api-docs
-	}
-	# handle_path /mock/api/* {
-	# 	reverse_proxy http://backend-mock:9002
-	# }
-	# handle_path /mock/* {
-	# 	reverse_proxy http://frontend-mock:9000
+	# handle_path /docs/* {
+	#    reverse_proxy http://api-docs
 	# }
 	handle_path /api/* {
 		reverse_proxy http://proxy:8002
 	}
 
 	reverse_proxy http://frontend:8000
+}
+
+{$DEV_DOMAIN} {
+	redir /docs /docs/ permanent
+
+	handle_path /docs/* {
+		reverse_proxy http://api-docs
+	}
+	handle_path /api/* {
+	    reverse_proxy http://backend-mock:9002
+	}
+
+	reverse_proxy http://frontend-mock:8000
 }
