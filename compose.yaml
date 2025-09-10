@@ -3,8 +3,6 @@ services:
   database:
     image: postgres:16.1-alpine3.19
     env_file: database.env
-    ports:
-        - 5432:5432
     volumes:
         - ${WORK_DIR:?error}/database:/var/lib/postgresql/data
     networks:
@@ -62,12 +60,13 @@ services:
         context: .
         dockerfile: Dockerfile.proxy
     ports:
-        - "${WEB_PORT:-8081}:${WEB_PORT:-8081}"
+        - "9100:9100"
     command:
         # Point to the backend on the machine's host
-        - --backend_addr=host.docker.internal:${PORT:-8080}
+        - --backend_addr=backend:9000
         - --allowed_origins=http?://${PROD_DOMAIN}
         - --run_tls_server=false # Don't require TLS Handled by proxy
+        - --server_http_debug_port=9100
 
 networks:
   snowballr-network:
