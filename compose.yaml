@@ -37,7 +37,7 @@ services:
     env_file: backend.env
     networks:
       - snowballr-network
-
+      - snowballr-host # to communicate with the email server
   caddy:
     image: caddy:2.10.0
     environment:
@@ -53,7 +53,7 @@ services:
       - ${WORK_DIR:?error}/runtime/caddy/config:/config
     networks:
       - snowballr-network
-      - snowballr-host
+      - snowballr-host # to communicate with the client
 
   proxy:
     build:
@@ -67,17 +67,16 @@ services:
         - --allowed_origins=http?://${PROD_DOMAIN}
         - --run_tls_server=false # Don't require TLS Handled by proxy
         - --server_http_debug_port=9100
+    networks:
+        - snowballr-network
 
 networks:
   snowballr-network:
     name: snowballr-network
-    driver: ipvlan
+    driver: bridge
     internal: true
-    external: false
 
   snowballr-host:
     name: snowballr-host
     driver: bridge
     internal: false
-    external: false
-
