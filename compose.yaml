@@ -67,6 +67,8 @@ services:
         - --allowed_origins=http?://${PROD_DOMAIN}
         - --run_tls_server=false # Don't require TLS Handled by proxy
         - --server_http_debug_port=9100
+        - --server_http_max_write_timeout=30s
+        - --server_http_max_read_timeout=30s
     networks:
         - snowballr-network
 
