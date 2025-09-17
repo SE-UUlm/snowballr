@@ -59,28 +59,93 @@ create branches from an issue as it already provides `<issue-number>-<short-desc
 
 This project uses [Docker](https://www.docker.com/) for local and production deployments. All services are orchestrated
 via [Docker Compose](https://docs.docker.com/compose/), with [Caddy](https://caddyserver.com/) serving as a reverse
-proxy to route HTTP traffic to the appropriate service.
+proxy to route HTTP traffic to the appropriate services.
 
-Currently, deployments are performed nightly, using the latest version of the API and the current state of the `develop`
-branch of the [frontend](https://github.com/SE-UUlm/snowballr-frontend/tree/develop). In the future, the versions should
-be pinned to and aligned with releases of the system parts to ensure stability and reproducibility.
+At the moment, deployments are performed nightly, always using the latest version of the API and the current state of
+the `develop` branch of the [frontend](https://github.com/SE-UUlm/snowballr-frontend/tree/develop) and
+[backend](https://github.com/SE-UUlm/snowballr-backend/tree/develop) /
+[mock backend](https://github.com/SE-UUlm/snowballr-mock-backend/tree/main).
+
+> **Note:** In the future, the versions should be pinned to and aligned with releases of the system parts to ensure
+> stability and reproducibility.
+
+The deployment setup requires the following environment variables:
+
+- `PROD_DOMAIN` — domain for the deployment of the production setup.
+- `DEV_DOMAIN` — domain for the deployment of the development / testing setup.
+- `WORK_DIR` — base working directory used for mounted volumes (e.g. where `database` volume is located).
 
 ### Service Overview
 
-| Service        | Description                | Port                     |
-|----------------|----------------------------|--------------------------|
-| `frontend`     | Svelte-based GUI           | `8000`                   |
-| `mock-backend` | Mock backend (for testing) | `8002`                   |
-| `api-docs`     | Sabledocs for gRPC docs    | `8000` with path `/docs` |
+| Service         | Description / usage (short)                    | Port       |
+|-----------------|------------------------------------------------|------------|
+| `caddy`         | Public reverse-proxy & TLS certification       | `80`,`443` |
+| `frontend`      | Production Svelte GUI                          | `8000`     |
+| `frontend-mock` | Development Svelte GUI (testing)               | `8001`     |
+| `api-docs`      | gRPC API documentation site                    | `80`       |
+| `proxy`         | Production gRPC proxy that forwards to backend | `9100`     |
+| `backend`       | Production backend                             | `9000`     |
+| `backend-mock`  | Mock backend                                   | `9101`     |
+| `database`      | PostgreSQL database                            | `5432`     |
+
+> **Note:** the _Port_ column lists only container ports, not host-published ports. Only `caddy` and `proxy` publish
+> ports: `80`, `443`, `443/udp` or `9100`, respectively.
+
+The `backend-mock` service operates entirely in-memory and does not persist data.
+In contrast, the `backend` service relies on the `database` service (PostgreSQL) for permanent data storage.
+All database files are stored under `${WORK_DIR}/database`.
+The `database` service is not exposed publicly and cannot be accessed directly by external PostgreSQL clients.
+
+#### Networks
+
+- `snowballr-network` — Internal bridge network for communication between application services. All services are
+  attached to this network and this network cannot be accessed from outside the Docker environment.
+- `snowballr-host` — Bridge network that provides access to the Docker host and external services.
+  It is used by the `caddy` service to communicate with external clients and by the `backend` service to interact with
+  the host’s email server.
 
 ### Routing
 
-Caddy handles incoming HTTP(S) traffic and routes it based on the request path with the host
-[snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/).
+Caddy handles incoming HTTP(S) traffic and routes requests based on the configured domain and path.
+Two domains are in use: one for the production deployment
+([snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/)),
+which serves the end-user version of the application, and one for the development deployment
+([snowballr-dev.informatik.uni-ulm.de](https://snowballr-dev.informatik.uni-ulm.de/)),
+which is used to test new features (currently with the mock backend).
 
-- `/docs/*` → forwards to api-docs
-- `/api/*` → forwards to mock-backend
-- All other paths → served by the frontend service
+```mermaid
+flowchart TB
+    %% Clients
+    Client[Browser / End User]
+
+    %% Networks
+    subgraph SN["snowballr-network (internal)"]
+        Caddy["caddy<br/>(80 / 443)"]
+        Frontend["frontend<br/>(8000)"]
+        FrontendMock["frontend-mock<br/>(8001)"]
+        ApiDocs["api-docs<br/>(80)"]
+        Proxy["proxy<br/>(9100)"]
+        Backend["backend<br/>(9000)"]
+        BackendMock["backend-mock<br/>(9101)"]
+        Database["database<br/>(5432)"]
+    end
+
+    Mail[Email Server]
+
+    %% Connections inside snowballr-network
+    Caddy -->|"${PROD_DOMAIN}/"| Frontend
+    Caddy -->|"${DEV_DOMAIN}/"| FrontendMock
+    Caddy -->|"\*/docs/*"| ApiDocs
+    Caddy -->|"${PROD_DOMAIN}/api/*"| Proxy
+    Caddy -->|"${DEV_DOMAIN}/api/*"| BackendMock
+
+    Proxy --> Backend
+    Backend --> Database
+
+    %% External communications
+    Client -->|HTTP / HTTPS| Caddy
+    Backend -->|SMTP| Mail
+```
 
 ## Versioning Guideline
 
@@ -89,7 +154,7 @@ When a new version should be published, document the changes in a changelog (fol
 [Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and
 published.
 
->**Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
+> **Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
 
 ## Teamscale Integration
 
