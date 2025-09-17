@@ -65,7 +65,8 @@ At the moment, deployments are performed nightly, always using the latest versio
 the `develop` branch of the [frontend](https://github.com/SE-UUlm/snowballr-frontend/tree/develop) and
 [backend](https://github.com/SE-UUlm/snowballr-backend/tree/develop) /
 [mock backend](https://github.com/SE-UUlm/snowballr-mock-backend/tree/main).
->**Note:** In the future, the versions should be pinned to and aligned with releases of the system parts to ensure
+
+> **Note:** In the future, the versions should be pinned to and aligned with releases of the system parts to ensure
 > stability and reproducibility.
 
 The deployment setup requires the following environment variables:
@@ -74,18 +75,18 @@ The deployment setup requires the following environment variables:
 - `DEV_DOMAIN` — domain for the deployment of the development / testing setup.
 - `WORK_DIR` — base working directory used for mounted volumes (e.g. where `database` volume is located).
 
-### Service overview
+### Service Overview
 
-| Service         | Description / usage (short)                    |       Port |
-|-----------------|------------------------------------------------|-----------:|
+| Service         | Description / usage (short)                    | Port       |
+|-----------------|------------------------------------------------|------------|
 | `caddy`         | Public reverse-proxy & TLS certification       | `80`,`443` |
-| `frontend`      | Production Svelte GUI                          |     `8000` |
-| `frontend-mock` | Development Svelte GUI (testing)               |     `8001` |
-| `api-docs`      | gRPC API documentation site                    |       `80` |
-| `proxy`         | Production gRPC proxy that forwards to backend |     `9100` |
-| `backend`       | Production backend                             |     `9000` |
-| `backend-mock`  | Mock backend                                   |     `9101` |
-| `database`      | PostgreSQL database                            |     `5432` |
+| `frontend`      | Production Svelte GUI                          | `8000`     |
+| `frontend-mock` | Development Svelte GUI (testing)               | `8001`     |
+| `api-docs`      | gRPC API documentation site                    | `80`       |
+| `proxy`         | Production gRPC proxy that forwards to backend | `9100`     |
+| `backend`       | Production backend                             | `9000`     |
+| `backend-mock`  | Mock backend                                   | `9101`     |
+| `database`      | PostgreSQL database                            | `5432`     |
 
 > **Note:** the _Port_ column lists only container ports, not host-published ports. Only `caddy` and `proxy` publish
 > ports: `80`, `443`, `443/udp` or `9100`, respectively.
@@ -98,10 +99,10 @@ The `database` service is not exposed publicly and cannot be accessed directly b
 #### Networks
 
 - `snowballr-network` — Internal bridge network for communication between application services. All services are
-attached to this network and this network cannot be accessed from outside the Docker environment.
+  attached to this network and this network cannot be accessed from outside the Docker environment.
 - `snowballr-host` — Bridge network that provides access to the Docker host and external services.
-It is used by the `caddy` service to communicate with external clients and by the `backend` service to interact with
-the host’s email server.
+  It is used by the `caddy` service to communicate with external clients and by the `backend` service to interact with
+  the host’s email server.
 
 ### Routing
 
@@ -153,7 +154,7 @@ When a new version should be published, document the changes in a changelog (fol
 [Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and
 published.
 
->**Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
+> **Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
 
 ## Teamscale Integration
 
