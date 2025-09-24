@@ -12,3 +12,7 @@ system interact.
 ### Sign-Up Process
 
 ![snowballr-sign-up-process.svg](assets/snowballr-sign-up-process.svg)
+
+### Project Invitation Process
+
+![snowballr-project-invitation-process.svg](assets/snowballr-project-invitation-process.svg)
