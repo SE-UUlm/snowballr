@@ -9,9 +9,9 @@ system interact.
 
 ---
 
-### Sign-Up Process
+### User Account Lifecycle
 
-![snowballr-sign-up-process.svg](assets/snowballr-sign-up-process.svg)
+![snowballr-user-account-lifecycle.svg](assets/snowballr-user-account-lifecycle.svg)
 
 ### Project Invitation Process
 
