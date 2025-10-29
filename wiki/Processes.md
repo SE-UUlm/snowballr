@@ -11,6 +11,17 @@ system interact.
 
 ### User Account Lifecycle
 
+The user account lifecycle diagram provides a high-level overview of the different stages a user account goes through
+within the system. Each box represents a specific state of the account. At the top, the corresponding internal
+`UserStatus` enum value is shown (if the user object exists). Below it, a short description outlines the
+characteristics or conditions of that state.
+
+![snowballr-user-account-lifecycle-help.svg](assets/snowballr-user-account-lifecycle-help.svg)
+
+The lifecycle is composed of six distinct states. The first three represent the primary phases of a user account, while
+the remaining three correspond to the deletion and cleanup stages, which are initiated after an account has been
+deleted and specific cron jobs have been triggered.
+
 ![snowballr-user-account-lifecycle.svg](assets/snowballr-user-account-lifecycle.svg)
 
 ### Project Invitation Process
