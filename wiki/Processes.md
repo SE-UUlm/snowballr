@@ -26,4 +26,10 @@ deleted and specific cron jobs have been triggered.
 
 ### Project Invitation Process
 
+The project invitation process provides a high-level overview of the different stages a project invitation goes through
+within the system. Each box represents a specific state of the invitation process.
+
+In contrast to the user account lifecycle diagram, each state only contains a description since there are multiple
+entities involved.
+
 ![snowballr-project-invitation-process.svg](assets/snowballr-project-invitation-process.svg)
