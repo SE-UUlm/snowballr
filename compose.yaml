@@ -7,30 +7,39 @@ services:
         - ${WORK_DIR:?error}/database:/var/lib/postgresql/data
     networks:
         - snowballr-network
+    profiles:
+        - production
 
   frontend-mock:
     image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
     env_file: frontend-mock.env
     networks:
     - snowballr-network
+    profiles:
+        - development
 
   frontend:
     image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
     env_file: frontend.env
     networks:
       - snowballr-network
+    profiles:
+       - production
 
   api-docs:
     image: ghcr.io/se-uulm/snowballr-api/docs:main
     hostname: "api-docs"
     networks:
       - snowballr-network
+    profiles: [""]
 
   backend-mock:
     image: ghcr.io/se-uulm/snowballr-mock-backend:main
     env_file: backend-mock.env
     networks:
         - snowballr-network
+    profiles:
+        - development
 
   backend:
     image: ghcr.io/se-uulm/snowballr-backend:latest-dev
@@ -38,6 +47,9 @@ services:
     networks:
       - snowballr-network
       - snowballr-host # to communicate with the email server
+    profiles:
+        - production
+
   caddy:
     image: caddy:2.10.0
     environment:
@@ -54,6 +66,7 @@ services:
     networks:
       - snowballr-network
       - snowballr-host # to communicate with the client
+    profiles: [""]
 
   proxy:
     build:
@@ -71,6 +84,8 @@ services:
         - --server_http_max_read_timeout=30s
     networks:
         - snowballr-network
+    profiles:
+        - production
 
 networks:
   snowballr-network:
