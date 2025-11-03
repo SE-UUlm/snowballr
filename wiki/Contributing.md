@@ -16,9 +16,9 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
 ### Workflow
 
 Starting from an issue, we create a branch with the name of the issue (see [Commits & Branches](#commits--branches)).
-It's up to you, whether you create a draft pull request immediately or wait until you are finished with the
+It's up to you whether you create a draft pull request immediately or wait until you are finished with the
 implementation. While creating a draft pull request gives you direct feedback from the CI/CD pipeline, it also clutters
-the pull request list. So it's up to you whether you want to create a draft pull request or not.
+the pull request list.
 
 When starting to work on an issue, ensure that the issue is assigned to you and part of our project SnowballR.
 Furthermore, make sure you set the status to `In progress` and the iteration to the current one (if that is not already
