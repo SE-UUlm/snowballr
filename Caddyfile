@@ -21,8 +21,8 @@
 	import docs-config
 
 	handle_path /api/* {
-		reverse_proxy http://backend-mock:9101
+		reverse_proxy http://proxy-development:9101
 	}
 
-	reverse_proxy http://frontend-mock:8001
+	reverse_proxy http://frontend-development:8001
 }
