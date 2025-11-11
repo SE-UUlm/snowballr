@@ -33,3 +33,12 @@ In contrast to the user account lifecycle diagram, each state only contains a de
 entities involved.
 
 ![snowballr-project-invitation-process.svg](assets/snowballr-project-invitation-process.svg)
+
+### Criterion State Process
+
+The criterion state process provides a high-level overview of the different states a criterion can go through
+within the system. Especially the difference between user and project criteria is highlighted. Therefore, the two
+composed states `USER_SPECIFIC_CRITERION` and `PROJECT_SPECIFIC_CRITERION` contain all the substates differentiating
+the behavior of user and project criteria.
+
+![snowballr-criterion-state-project.svg](assets/snowballr-criterion-state-process.svg)
