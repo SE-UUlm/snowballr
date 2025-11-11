@@ -48,3 +48,12 @@ project is locked to prevent certain changes to the settings, as, for example, c
 that would influence the further process of the SLR.
 
 ![snowballr-project-lifecycle.svg](assets/snowballr-project-lifecycle.svg)
+
+### Criterion State Process
+
+The criterion state process provides a high-level overview of the different states a criterion can go through
+within the system. Especially the difference between user and project criteria is highlighted. Therefore, the two
+composed states `USER_SPECIFIC_CRITERION` and `PROJECT_SPECIFIC_CRITERION` contain all the substates differentiating
+the behavior of user and project criteria.
+
+![snowballr-criterion-state-project.svg](assets/snowballr-criterion-state-process.svg)
