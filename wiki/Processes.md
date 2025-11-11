@@ -70,3 +70,12 @@ results in the paper being accepted.
 *$^1$ see [user lifecycle](#user-account-lifecycle)
 *$^2$ see [project lifecycle](#project-lifecycle)
 *$^3$ see [project invitation process](#project-invitation-process)
+
+### Criterion State Process
+
+The criterion state process provides a high-level overview of the different states a criterion can go through
+within the system. Especially the difference between user and project criteria is highlighted. Therefore, the two
+composed states `USER_SPECIFIC_CRITERION` and `PROJECT_SPECIFIC_CRITERION` contain all the substates differentiating
+the behavior of user and project criteria.
+
+![snowballr-criterion-state-project.svg](assets/snowballr-criterion-state-process.svg)

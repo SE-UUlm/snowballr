@@ -3071,4 +3071,346 @@
       </root>
     </mxGraphModel>
   </diagram>
+  <diagram id="e4mu8f_74rSmcObZ4TMW" name="Criterion State Process">
+    <mxGraphModel dx="2647" dy="1061" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KolzmhqS2OAzWrv2A1jz-1" value="PROJECT_SPECIFIC_CRITERION" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=light-dark(#443D28,#443D28);fillColor=light-dark(#443D28,#443D28);container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="510" width="750" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-49" value="USER_SPECIFIC_CRITERION" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=light-dark(#443D28,#443D28);fillColor=light-dark(#443D28,#443D28);container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="-330" y="260" width="810" height="640" as="geometry" />
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;curved=0;" edge="1" parent="1" source="38_lZP1qN8Nn7NzLjdIL-2" target="38_lZP1qN8Nn7NzLjdIL-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-2" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#000000;aspect=fixed;margin=4;spacing=2;" vertex="1" parent="1">
+          <mxGeometry x="490" y="10" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IT9wy4N6FwX7_d9W-3w_-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="38_lZP1qN8Nn7NzLjdIL-5" target="IT9wy4N6FwX7_d9W-3w_-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="270" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-5" value="Criterion does not exist" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA6B66;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="410" y="80" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;curved=0;" edge="1" parent="1" source="2jFeEPB82O5M7AksiNuh-2" target="38_lZP1qN8Nn7NzLjdIL-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="10" y="460" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;curved=0;" edge="1" parent="1" source="38_lZP1qN8Nn7NzLjdIL-13" target="4rHxXMEWFaUJ2AObP461-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-12" value="User requests update" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="38_lZP1qN8Nn7NzLjdIL-11">
+          <mxGeometry x="-0.0214" relative="1" as="geometry">
+            <mxPoint y="57" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="38_lZP1qN8Nn7NzLjdIL-13" target="KjbGBwQvbhh4E0RN6BjJ-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-2" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4rHxXMEWFaUJ2AObP461-1">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-1" value="User requests deletion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4rHxXMEWFaUJ2AObP461-1">
+          <mxGeometry x="-0.15" relative="1" as="geometry">
+            <mxPoint x="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-13" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="50" y="550" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;curved=0;" edge="1" parent="1" source="KjbGBwQvbhh4E0RN6BjJ-3" target="KjbGBwQvbhh4E0RN6BjJ-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="890" as="sourcePoint" />
+            <mxPoint x="340" y="1030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-16" value="&lt;div&gt;Delete user the criterion&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="38_lZP1qN8Nn7NzLjdIL-15">
+          <mxGeometry x="-0.15" relative="1" as="geometry">
+            <mxPoint y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="38_lZP1qN8Nn7NzLjdIL-24" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="510" y="1390" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IT9wy4N6FwX7_d9W-3w_-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.01;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="IT9wy4N6FwX7_d9W-3w_-1" target="2jFeEPB82O5M7AksiNuh-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="439.99999999999955" y="380" as="sourcePoint" />
+            <mxPoint x="110" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IT9wy4N6FwX7_d9W-3w_-6" value="User creates a criterion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="IT9wy4N6FwX7_d9W-3w_-3">
+          <mxGeometry x="-0.1429" relative="1" as="geometry">
+            <mxPoint x="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IT9wy4N6FwX7_d9W-3w_-1" target="2AuxCh3sUT0U_jd6Fxex-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="340" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-7" value="User creates a project" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-6">
+          <mxGeometry x="-0.0606" y="-2" relative="1" as="geometry">
+            <mxPoint x="4" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IT9wy4N6FwX7_d9W-3w_-1" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="490" y="360" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2jFeEPB82O5M7AksiNuh-1" value="USER_CRITERION_VALID" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#97D077;fillColor=#97D077;container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="300" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2jFeEPB82O5M7AksiNuh-2" value="Criterion exists, but does not contain a projectId, because it is a specific default criterion" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="2jFeEPB82O5M7AksiNuh-1">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-4" value="UPDATE_PENDING" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#FFD966;fillColor=#FFD966;container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="-160" y="690" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-5" value="The update of the criterion was requested" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="4rHxXMEWFaUJ2AObP461-4">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.077;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="KjbGBwQvbhh4E0RN6BjJ-5" target="2jFeEPB82O5M7AksiNuh-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-210" y="630" as="sourcePoint" />
+            <mxPoint x="-130" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-260" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-7" value="[Criterion was created by the user&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;] /&lt;/span&gt;&lt;div&gt;The criterion gets successfully&lt;/div&gt;&lt;div&gt;&amp;nbsp;updated in the database&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4rHxXMEWFaUJ2AObP461-6">
+          <mxGeometry x="-0.0253" relative="1" as="geometry">
+            <mxPoint x="110" y="-47" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.654;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="KjbGBwQvbhh4E0RN6BjJ-5" target="2jFeEPB82O5M7AksiNuh-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-370" y="530" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-160" y="670" />
+              <mxPoint x="-160" y="415" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4rHxXMEWFaUJ2AObP461-9" value="[Criterion was not created by the user] /&lt;div&gt;The user doesn&#39;t have the&amp;nbsp;&lt;/div&gt;&lt;div&gt;permissions to update the criterion&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4rHxXMEWFaUJ2AObP461-8">
+          <mxGeometry x="-0.1911" relative="1" as="geometry">
+            <mxPoint x="10" y="-34" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-2" value="DELETION_PENDING" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#FFD966;fillColor=#FFD966;container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="590" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-3" value="The deletion of the criterion was requested" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="KjbGBwQvbhh4E0RN6BjJ-2">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.02;entryY=0.446;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="KjbGBwQvbhh4E0RN6BjJ-4" target="2AuxCh3sUT0U_jd6Fxex-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="1230" as="targetPoint" />
+            <mxPoint x="480" y="880" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="280" y="1278" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-12" value="[Criterion was created by the user&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;] /&lt;/span&gt;&lt;div&gt;The criterion gets successfully&lt;/div&gt;&lt;div&gt;&amp;nbsp;deleted&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KjbGBwQvbhh4E0RN6BjJ-11">
+          <mxGeometry x="0.0211" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-57" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-4" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="260" y="840" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="4rHxXMEWFaUJ2AObP461-5" target="KjbGBwQvbhh4E0RN6BjJ-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-410" y="570" as="sourcePoint" />
+            <mxPoint x="-360" y="580" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-260" y="785" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-8" value="Update the user criterion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KjbGBwQvbhh4E0RN6BjJ-7">
+          <mxGeometry x="0.0359" y="-1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-5" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="650" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.005;entryY=0.638;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="KjbGBwQvbhh4E0RN6BjJ-4" target="2jFeEPB82O5M7AksiNuh-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="860" />
+              <mxPoint x="390" y="413" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KjbGBwQvbhh4E0RN6BjJ-10" value="[Criterion was not created by the user] /&lt;div&gt;The user doesn&#39;t have the&amp;nbsp;&lt;/div&gt;&lt;div&gt;permissions to delete the criterion&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="KjbGBwQvbhh4E0RN6BjJ-9">
+          <mxGeometry x="-0.0366" relative="1" as="geometry">
+            <mxPoint x="-20" y="-96" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-1" value="DELETED" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#EA6B66;fillColor=#EA6B66;container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1190" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-2" value="User account does exist, but is marked as deleted" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="2AuxCh3sUT0U_jd6Fxex-1">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-2" target="38_lZP1qN8Nn7NzLjdIL-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-5" target="2AuxCh3sUT0U_jd6Fxex-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-11" value="Criterion gets created" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-10">
+          <mxGeometry x="0.0222" y="-1" relative="1" as="geometry">
+            <mxPoint x="1" y="-36" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-5" value="Project was created" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA6B66;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="300" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-8" value="PROJECT_CRITERION_VALID" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#97D077;fillColor=#97D077;container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="685" y="570" width="210" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-9" value="Criterion is created by duplicating a user default criterion of the user, who created the project.&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The projectId is defined as the id of the according project&lt;/div&gt;" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="2AuxCh3sUT0U_jd6Fxex-8">
+          <mxGeometry y="30" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=block;endFill=1;curved=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-17" target="2AuxCh3sUT0U_jd6Fxex-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-13" value="User requests update" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-12">
+          <mxGeometry x="-0.0214" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-17" target="2AuxCh3sUT0U_jd6Fxex-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1380" y="1120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-16" value="User requests deletion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-14">
+          <mxGeometry x="-0.15" relative="1" as="geometry">
+            <mxPoint y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-17" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="770" y="770" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-19" value="UPDATE_PENDING" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#FFD966;fillColor=#FFD966;container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="950" y="870" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-20" value="The update of the criterion was requested" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="2AuxCh3sUT0U_jd6Fxex-19">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-21" value="DELETION_PENDING" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#FFD966;fillColor=#FFD966;container=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="910" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-22" value="The deletion of the criterion was requested" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="2AuxCh3sUT0U_jd6Fxex-21">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-9" target="2AuxCh3sUT0U_jd6Fxex-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-20" target="2AuxCh3sUT0U_jd6Fxex-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1430" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-29" value="Update the project criterion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-26">
+          <mxGeometry x="0.2254" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-31" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="670" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="897" y="690" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="975" y="690" />
+              <mxPoint x="897" y="689" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-37" value="[User is not project admin&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;] /&lt;/span&gt;&lt;div&gt;The user doesn&#39;t have the&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;permissions to update the criterion&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-33">
+          <mxGeometry x="-0.0805" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="899" y="620" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1220" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-35" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-34">
+          <mxGeometry x="0.1516" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-36" value="[User is project admin&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;] /&lt;/span&gt;&lt;div&gt;The criterion gets successfully&lt;/div&gt;&lt;div&gt;&amp;nbsp;updated in the database&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-34">
+          <mxGeometry x="0.1363" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" target="2AuxCh3sUT0U_jd6Fxex-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="769.9999999999995" y="1149" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="640" y="1149" />
+              <mxPoint x="640" y="665" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-44" value="[User is not a project admin] /&lt;div&gt;The user doesn&#39;t have the&amp;nbsp;&lt;/div&gt;&lt;div&gt;permissions to delete the criterion&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-41">
+          <mxGeometry x="0.2714" y="-1" relative="1" as="geometry">
+            <mxPoint y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-38" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="770" y="1129" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="789.9999999999995" y="1129" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-42" value="Delete the project criterion" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-39">
+          <mxGeometry x="-0.0667" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.01;entryY=0.438;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="2AuxCh3sUT0U_jd6Fxex-38" target="2AuxCh3sUT0U_jd6Fxex-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="790" y="1277" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2AuxCh3sUT0U_jd6Fxex-43" value="[User is project admin&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;] /&lt;/span&gt;&lt;div&gt;The criterion gets successfully&lt;/div&gt;&lt;div&gt;&amp;nbsp;deleted&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2AuxCh3sUT0U_jd6Fxex-40">
+          <mxGeometry x="-0.253" y="2" relative="1" as="geometry">
+            <mxPoint x="-2" y="-49" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
 </mxfile>
