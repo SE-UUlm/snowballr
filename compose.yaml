@@ -73,7 +73,7 @@ services:
           - "9101:9101"
       command:
           # Point to the backend on the machine's host
-          - --backend_addr=backend:9001
+          - --backend_addr=backend-development:9001
           - --allowed_origins=http?://${DEV_DOMAIN}
           - --run_tls_server=false # Don't require TLS Handled by proxy
           - --server_http_debug_port=9101
@@ -97,7 +97,6 @@ services:
     hostname: "api-docs"
     networks:
       - snowballr-network
-    profiles: [""]
 
   caddy:
     image: caddy:2.10.0
@@ -115,7 +114,6 @@ services:
     networks:
       - snowballr-network
       - snowballr-host # to communicate with the client
-    profiles: [""]
 
 networks:
   snowballr-network:
