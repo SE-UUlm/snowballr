@@ -164,15 +164,17 @@ flowchart TB
 ## Versioning Guideline
 
 For the versioning we follow [Semantic Versioning](https://semver.org/).
-When a new version should be published, document the changes in a changelog (following the guidelines of
-[Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and
-published.
+Whenever a new version of the application should be released, for example, due to new features, important bug fixes,
+or general changes in the frontend or backend, a new release is created.
 
 > **Note:** At the moment the [Frontend](https://github.com/SE-UUlm/snowballr-frontend) is not versioned.
 
 ### Release Procedure
 
-When a new version should be released, follow these steps:
+A new release includes documenting all relevant changes in the _CHANGELOG.md_ and ensuring that the deployment
+configuration in the _compose.yml_ for the production backend references the desired backend version / tag.
+
+When a new version of the **SnowballR** web application should be released, follow these steps:
 
 1. Create a release branch for the release:
 
@@ -199,9 +201,11 @@ When a new version should be released, follow these steps:
    [`Release`](https://github.com/SE-UUlm/snowballr-ci/wiki/Getting-Started#release) workflow from our CI repository to
    ensure a consistent changelog format and automatic release creation.
 
-5. Create a pull request and request a review.
+5. Update the tag of the _snowballr-backend_ image in the _compose.yml_ to the new version.
 
-6. After the pull request is merged, create a tag with the same version - so "vX.Y.Z" - at the merge commit.
+6. Create a pull request and request a review.
+
+7. After the pull request is merged, create a tag with the same version - so "vX.Y.Z" - at the merge commit.
 
    ```bash
    git pull main|develop
@@ -209,7 +213,7 @@ When a new version should be released, follow these steps:
    git push origin vX.Y.Z
    ```
 
-7. Then the CI automatically creates a new release.
+7. Then the CI automatically creates a new release and deploys the new application version to the production server.
 
 ## Teamscale Integration
 
