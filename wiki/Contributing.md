@@ -6,7 +6,7 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
 - [Deployment](#deployment)
   - [Service Overview](#service-overview)
   - [Routing](#routing)
-- [Versioning Guideline](#versioning-guideline)
+- [Versioning and Release Guideline](#versioning-and-release-guideline)
 - [Teamscale Integration](#teamscale-integration)
 
 ## Contribution Workflow & Conventions
@@ -159,14 +159,48 @@ flowchart TB
     BackendDev -->|SMTP| Mail
 ```
 
-## Versioning Guideline
+## Versioning and Release Guideline
 
 For the versioning we follow [Semantic Versioning](https://semver.org/).
-When a new version should be published, document the changes in a changelog (following the guidelines of
-[Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and
-published.
+Whenever a new version of the application should be released, for example, due to new features, important bug fixes,
+or general changes in the frontend or backend, a new release is created.
 
-> **Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
+A new release includes documenting all relevant changes in the _CHANGELOG.md_ and ensuring that the deployment
+configuration in the _compose.yml_ for the production backend references the desired backend version / tag.
+
+To release a new version of the **SnowballR** web application, follow these steps:
+
+1. Create a release branch for the release:
+
+   ```bash
+   git checkout -b releases/vX.Y.Z
+   ```
+
+   Replace `X`, `Y`, `Z` with the correct version numbers according to semantic versioning.
+
+2. Add an entry to the _CHANGELOG.md_. Prefer using [hallmark](https://github.com/vweevers/hallmark) to add the entry:
+
+   ```bash
+   hallmark cc add major|minor|patch
+   ```
+
+   Follow the guidelines of [Common Changelog](https://common-changelog.org/), i.e., especially use imperative mood.
+
+   > **Note**: To use hallmark locally install it globally with `npm install -g hallmark`
+
+3. Update the tag of the _snowballr-backend_ image in the _compose.yml_ to the new version.
+
+4. Push the changes, create a pull request and request a review, so the _CHANGELOG.md_ syntax and content are validated.
+
+5. After the pull request is merged, create a tag with the same version - so "vX.Y.Z" - at the merge commit.
+
+   ```bash
+   git pull main
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
+   ```
+
+   Then the CI automatically creates the release and deploys the new application version to the production server.
 
 ## Teamscale Integration
 
