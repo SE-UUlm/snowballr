@@ -48,3 +48,15 @@ project is locked to prevent certain changes to the settings, as, for example, c
 that would influence the further process of the SLR.
 
 ![snowballr-project-lifecycle.svg](assets/snowballr-project-lifecycle.svg)
+
+### SLR Process
+
+Integrating the diagrams described above provides a detailed overview of the main workflow: the systematic literature
+review (SLR) process. Before initiating an SLR, a user must register an account and verify their email address.
+After registration, this user can create a project and optionally invite collaborators, who are also required to have
+verified accounts. Once the project is configured, the creator of the project — individually or with collaborators —
+can begin the SLR.
+
+The following diagram shows this main workflow in detail, assuming that the SLR is performed by a team of two
+collaborators.
+
