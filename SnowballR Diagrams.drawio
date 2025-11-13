@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:144.0) Gecko/20100101 Firefox/144.0" version="28.2.9" pages="5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0.1 Safari/605.1.15" version="28.2.9" pages="6">
   <diagram name="Component Templates" id="Hf_kCL5WDnvOLtHVactw">
     <mxGraphModel dx="1426" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -2115,6 +2115,285 @@
         </mxCell>
         <mxCell id="DTKBq9RM1kGsiBjBUlGp-41" value="User account/internal object description" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="DTKBq9RM1kGsiBjBUlGp-40" vertex="1">
           <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Project Lifecycle" id="WvX81iECjnwrSPqaw3Wu">
+    <mxGraphModel dx="1394" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-0" />
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-1" parent="d750gCh4F7nz8FhwdcSJ-0" />
+        <mxCell id="r04FH5AtpafsO9dLf-s2-4" value="&quot;active&quot; project" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#97D07780;fillColor=light-dark(#97D07780,#97D07780);container=0;collapsible=0;fillStyle=auto;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="90" y="370" width="260" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=block;endFill=1;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="d750gCh4F7nz8FhwdcSJ-3" target="d750gCh4F7nz8FhwdcSJ-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="110" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-3" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#000000;aspect=fixed;margin=4;spacing=2;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="200" y="40" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-4" value="Project does not exist" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA6B66;arcSize=6;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="120" y="160" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-10" value="User successfully creates a new project" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;endArrow=block;endFill=1;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="d750gCh4F7nz8FhwdcSJ-4">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="430" />
+              <mxPoint x="220" y="430" />
+            </Array>
+            <mxPoint y="-1" as="offset" />
+            <mxPoint x="360" y="480" as="sourcePoint" />
+            <mxPoint x="220" y="439.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-11" value="ACTIVE_LOCKED" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#97D077;fillColor=#97D077;container=0;collapsible=0;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="120" y="720" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-12" value="Project is created and active&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Is allowed to modify, except for&amp;nbsp;&lt;/div&gt;&lt;div&gt;SLR-related settings&lt;/div&gt;" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-11">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;endArrow=block;endFill=1;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" target="d750gCh4F7nz8FhwdcSJ-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="670" />
+              <mxPoint x="220" y="670" />
+            </Array>
+            <mxPoint x="220" y="599.9999999999998" as="sourcePoint" />
+            <mxPoint x="380" y="640.04" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-16" value="First paper is fetched /&amp;nbsp;&lt;div&gt;Lock SLR-related settings&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="d750gCh4F7nz8FhwdcSJ-15">
+          <mxGeometry x="0.3565" y="-1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-17" value="DELETED" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#EA6B66;fillColor=#EA6B66;container=0;collapsible=0;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="890" y="720" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-18" value="Project does exist, but is marked as deleted" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-17">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-21" value="UNSPECIFIED" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#EA6B66;fillColor=#EA6B66;container=0;collapsible=0;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="890" y="440" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-22" value="&lt;div&gt;Project does exist for internal references, but all project&lt;/div&gt;&lt;div&gt;information is deleted&lt;/div&gt;" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-21">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=1;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="d750gCh4F7nz8FhwdcSJ-17" target="d750gCh4F7nz8FhwdcSJ-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1140" y="690" as="sourcePoint" />
+            <mxPoint x="1140" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-24" value="Cron job triggers&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/ Clearing project information&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="d750gCh4F7nz8FhwdcSJ-23">
+          <mxGeometry x="-0.0916" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-25" value="Project does no longer exist" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA6B66;arcSize=6;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="890" y="160" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=1;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="d750gCh4F7nz8FhwdcSJ-21" target="d750gCh4F7nz8FhwdcSJ-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1180" y="440" as="sourcePoint" />
+            <mxPoint x="1180" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-27" value="Cron job triggers&lt;div&gt;[No further references to this project exist]&lt;/div&gt;&lt;div&gt;/ Deletion of cleared project&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="d750gCh4F7nz8FhwdcSJ-26">
+          <mxGeometry x="-0.0916" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-28" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;aspect=fixed;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="970" y="40" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=block;endFill=1;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="d750gCh4F7nz8FhwdcSJ-25" target="d750gCh4F7nz8FhwdcSJ-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="70" as="sourcePoint" />
+            <mxPoint x="840" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r04FH5AtpafsO9dLf-s2-0" value="ACTIVE" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#97D077;fillColor=#97D077;container=0;collapsible=0;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="120" y="440" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="r04FH5AtpafsO9dLf-s2-1" value="Project is created and active&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Creator of project is project admin&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Default criteria of creator are duplicated and added as project criteria (see criterion state process)&lt;/div&gt;" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="r04FH5AtpafsO9dLf-s2-0">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="bLf94FROW-HUXfzM5QKm-0" value="ARCHIVED" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=1;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=12;whiteSpace=wrap;html=1;swimlaneFillColor=#FFD966;fillColor=#FFD966;swimlaneLine=1;swimlaneHead=1;swimlaneBody=1;container=0;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="600" y="440" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="bLf94FROW-HUXfzM5QKm-1" value="Project is archived, i.e., read-only&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Only activating or deleting the project is allowed&lt;/div&gt;" style="align=center;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=middle;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" vertex="1" parent="bLf94FROW-HUXfzM5QKm-0">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-11" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="450" y="540" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.695;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="JJtYqyFq8trmBJXBMr0R-11" target="bLf94FROW-HUXfzM5QKm-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="860" as="sourcePoint" />
+            <mxPoint x="460" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-18" value="[User is project&amp;nbsp;&lt;div&gt;admin] / Project&amp;nbsp;&lt;br&gt;&lt;div&gt;is archived&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="JJtYqyFq8trmBJXBMr0R-14">
+          <mxGeometry x="-0.0933" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" target="JJtYqyFq8trmBJXBMr0R-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="560" as="sourcePoint" />
+            <mxPoint x="500" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-0" value="User archives&lt;div&gt;project&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="JJtYqyFq8trmBJXBMr0R-15">
+          <mxGeometry x="-0.1236" y="1" relative="1" as="geometry">
+            <mxPoint x="6" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="JJtYqyFq8trmBJXBMr0R-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="720" as="sourcePoint" />
+            <mxPoint x="350" y="487" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="470" y="487" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-17" value="[User is project member]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="JJtYqyFq8trmBJXBMr0R-16">
+          <mxGeometry x="-0.5368" y="2" relative="1" as="geometry">
+            <mxPoint x="2" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-19" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="680" y="670" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JJtYqyFq8trmBJXBMr0R-20" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="bLf94FROW-HUXfzM5QKm-1" target="JJtYqyFq8trmBJXBMr0R-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="830" as="sourcePoint" />
+            <mxPoint x="710" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-1" value="User deletes project" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="JJtYqyFq8trmBJXBMr0R-20">
+          <mxGeometry x="-0.1429" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.13;entryY=1.023;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="JJtYqyFq8trmBJXBMr0R-19" target="bLf94FROW-HUXfzM5QKm-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="750" as="sourcePoint" />
+            <mxPoint x="510" y="700" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="626" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-3" value="[User is project member]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="O1YoLGOGvYF6VUNfc5zZ-2">
+          <mxGeometry x="-0.5461" y="2" relative="1" as="geometry">
+            <mxPoint x="-38" y="-32" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="JJtYqyFq8trmBJXBMr0R-19" target="d750gCh4F7nz8FhwdcSJ-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="750" as="sourcePoint" />
+            <mxPoint x="510" y="700" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="700" y="815" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-5" value="[User is project admin] /&lt;div&gt;Project is soft-deleted&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="O1YoLGOGvYF6VUNfc5zZ-4">
+          <mxGeometry x="0.0644" y="-3" relative="1" as="geometry">
+            <mxPoint x="48" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-6" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="570" y="860" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-7" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" target="O1YoLGOGvYF6VUNfc5zZ-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="880" as="sourcePoint" />
+            <mxPoint x="700" y="940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-8" value="User deletes project" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="O1YoLGOGvYF6VUNfc5zZ-7">
+          <mxGeometry x="-0.1444" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="O1YoLGOGvYF6VUNfc5zZ-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="694" y="767" as="sourcePoint" />
+            <mxPoint x="350" y="810" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-10" value="[User is project member]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="O1YoLGOGvYF6VUNfc5zZ-9">
+          <mxGeometry x="-0.5461" y="2" relative="1" as="geometry">
+            <mxPoint x="-70" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="O1YoLGOGvYF6VUNfc5zZ-6" target="d750gCh4F7nz8FhwdcSJ-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="770" y="940" as="sourcePoint" />
+            <mxPoint x="820" y="890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O1YoLGOGvYF6VUNfc5zZ-12" value="[User is project admin] /&lt;div&gt;Project is soft-deleted&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="O1YoLGOGvYF6VUNfc5zZ-11">
+          <mxGeometry x="-0.1529" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GewC65wr8nAIFJ4eTcep-0" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#000000;rounded=1;arcSize=5;aspect=fixed;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="680" y="320" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GewC65wr8nAIFJ4eTcep-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="bLf94FROW-HUXfzM5QKm-0" target="GewC65wr8nAIFJ4eTcep-0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="690" y="650" as="sourcePoint" />
+            <mxPoint x="690" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GewC65wr8nAIFJ4eTcep-2" value="User reactivates project" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GewC65wr8nAIFJ4eTcep-1">
+          <mxGeometry x="-0.1429" relative="1" as="geometry">
+            <mxPoint y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GewC65wr8nAIFJ4eTcep-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="GewC65wr8nAIFJ4eTcep-0" target="bLf94FROW-HUXfzM5QKm-0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="684" y="767" as="sourcePoint" />
+            <mxPoint x="630" y="680" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GewC65wr8nAIFJ4eTcep-4" value="[User is project member]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GewC65wr8nAIFJ4eTcep-3">
+          <mxGeometry x="-0.5461" y="2" relative="1" as="geometry">
+            <mxPoint x="39" y="22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GewC65wr8nAIFJ4eTcep-5" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.005;entryY=0.059;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" edge="1" parent="d750gCh4F7nz8FhwdcSJ-1" source="GewC65wr8nAIFJ4eTcep-0" target="r04FH5AtpafsO9dLf-s2-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="750" as="sourcePoint" />
+            <mxPoint x="890" y="855" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="500" y="340" />
+              <mxPoint x="500" y="370" />
+              <mxPoint x="500" y="402" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GewC65wr8nAIFJ4eTcep-6" value="[User is project admin] /&lt;div&gt;Project is reactivated&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GewC65wr8nAIFJ4eTcep-5">
+          <mxGeometry x="0.0644" y="-3" relative="1" as="geometry">
+            <mxPoint x="83" y="-28" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rWE7Za4w00RJ64_I5ECX-0" value="If the project is reactivated, it returns to this active status, it had before the archiving" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;shadow=1;" vertex="1" parent="d750gCh4F7nz8FhwdcSJ-1">
+          <mxGeometry x="340" y="270" width="130" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
