@@ -53,14 +53,20 @@ typed interface.
   [backend architecture](https://github.com/SE-UUlm/snowballr-backend/wiki/Architecture)).
 - Uses [Exposed](https://github.com/JetBrains/Exposed) as an ORM, i.e., use the Exposed DSL to build SQL statements.
 
-## Technologies Used
+## System and Technology Overview
 
-| Component | Technology                 |
-|-----------|----------------------------|
-| Frontend  | React, TypeScript, Node.js |
-| Backend   | Kotlin, gRPC, Gradle       |
-| API       | gRPC, Protocol Buffers     |
-| Database  | PostgreSQL, Exposed        |
+The following diagram shows a general overview of the system and the technologies used in the **SnowballR** application.
+User requests to the public endpoint [snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/) are
+routed through a _Caddy_ reverse proxy, which manages access to the internal services.
+The frontend of **SnowballR** is developed with _TypeScript_ and the _SvelteKit_ framework,
+using _Vite_ as the build system. The website is rendered on the client side.
+The frontend interacts with the backend using _gRPC_ (+ Protocol buffers) for type-safe communication.
+The backend is implemented in _Kotlin_, without any server framework, and built with _Gradle_.
+It encapsulates the application logic and communicates with a _PostgreSQL_ database that provides persistent data
+storage. To enable gRPC communication with a web-based gRPC client, the backend needs an additional proxy service in
+between.
+
+![snowballr-technology-diagram.svg](assets/snowballr-technology-diagram.svg)
 
 ## Database Schema
 
