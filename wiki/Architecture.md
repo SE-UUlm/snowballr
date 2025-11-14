@@ -70,8 +70,9 @@ buffers), ensuring type-safe interactions for operations such as data retrieval 
 The backend is written in _Kotlin_ and does not rely on a higher-level server framework.
 _Gradle_ is the build tool used in the backend. The backend encapsulates the application logic and interacts with
 a _PostgreSQL_ database to persist user, project, paper, or other data.
-As _gRPC_ is not natively compatible with browsers, so the _gRPC_ client of the user, an additional _gRPC-Web proxy_
-is deployed between the browser and the backend.
+As _gRPC_ is not natively compatible with browsers (see [here](https://github.com/grpc/grpc-web/discussions/1348) for
+more details), so the _gRPC_ client of the user, an additional _gRPC-Web proxy_ is deployed between the browser and
+the backend.
 
 ## Database Schema
 
