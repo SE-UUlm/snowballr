@@ -49,11 +49,8 @@ that would influence the further process of the SLR.
 
 ![snowballr-project-lifecycle.svg](assets/snowballr-project-lifecycle.svg)
 
-### Criterion State Process
+### Criterion Lifecycle
 
-The criterion state process provides a high-level overview of the different states a criterion can go through
-within the system. Especially the difference between user and project criteria is highlighted. Therefore, the two
-composed states `USER_SPECIFIC_CRITERION` and `PROJECT_SPECIFIC_CRITERION` contain all the substates differentiating
-the behavior of user and project criteria.
+The criterion lifecycle provides a high-level overview of activities on a criterion from creation to deletion.
 
-![snowballr-criterion-state-project.svg](assets/snowballr-criterion-state-process.svg)
+![snowballr-criterion-lifecycle.svg](assets/snowballr-criterion-lifecycle.svg)
