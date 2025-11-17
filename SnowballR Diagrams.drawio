@@ -2165,7 +2165,7 @@
             <mxPoint x="380" y="640.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="d750gCh4F7nz8FhwdcSJ-16" value="First paper is fetched /&amp;nbsp;&lt;div&gt;Lock SLR-related settings&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#cbe7bb, #ededed);" parent="d750gCh4F7nz8FhwdcSJ-15" vertex="1" connectable="0">
+        <mxCell id="d750gCh4F7nz8FhwdcSJ-16" value="First paper is reviewed /&amp;nbsp;&lt;div&gt;Lock SLR-related settings&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#cbe7bb, #ededed);" parent="d750gCh4F7nz8FhwdcSJ-15" vertex="1" connectable="0">
           <mxGeometry x="0.3565" y="-1" relative="1" as="geometry">
             <mxPoint x="-1" y="-21" as="offset" />
           </mxGeometry>
