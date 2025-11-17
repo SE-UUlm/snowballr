@@ -34,7 +34,7 @@ entities involved.
 
 ![snowballr-project-invitation-process.svg](assets/snowballr-project-invitation-process.svg)
 
-### Project Process
+### Project Lifecycle
 
 The project lifecycle diagram provides a high-level overview of the different stages a project can go through
 within the system. Each box represents a specific state of the project lifecycle. At the top, the corresponding internal
@@ -55,8 +55,16 @@ Integrating the diagrams described above provides a detailed overview of the mai
 review (SLR) process. Before initiating an SLR, a user must register an account and verify their email address.
 After registration, this user can create a project and optionally invite collaborators, who are also required to have
 verified accounts. Once the project is configured, the creator of the project — individually or with collaborators —
-can begin the SLR.
+can begin the SLR. There is no strict limit on when the SLR process must end. However, all collaborators should agree
+on a clear stopping criterion — for example, when the last 100 papers have all been declined and no new relevant
+papers are likely to be found.
 
 The following diagram shows this main workflow in detail, assuming that the SLR is performed by a team of two
-collaborators.
+collaborators, the "Maybe" decision is not possible, and in case both collaborators decide differently, then the paper
+is accepted.
 
+![snowballr-slr-process](assets/snowballr-slr-process.svg)
+
+- *<sup>1</sup> see [user lifecycle](#user-account-lifecycle)
+- *<sup>2</sup> see [project lifecycle](#project-lifecycle)
+- *<sup>3</sup> see [project invitation process](#project-invitation-process)
