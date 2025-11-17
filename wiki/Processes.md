@@ -65,6 +65,6 @@ is accepted.
 
 ![snowballr-slr-process](assets/snowballr-slr-process.svg)
 
-- *<sup>1</sup> see [user lifecycle](#user-account-lifecycle)
-- *<sup>2</sup> see [project lifecycle](#project-lifecycle)
-- *<sup>3</sup> see [project invitation process](#project-invitation-process)
+*$^1$ see [user lifecycle](#user-account-lifecycle)
+*$^2$ see [project lifecycle](#project-lifecycle)
+*$^3$ see [project invitation process](#project-invitation-process)
