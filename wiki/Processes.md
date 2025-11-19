@@ -48,3 +48,9 @@ project is locked to prevent certain changes to the settings, as, for example, c
 that would influence the further process of the SLR.
 
 ![snowballr-project-lifecycle.svg](assets/snowballr-project-lifecycle.svg)
+
+### Criterion Lifecycle
+
+The criterion lifecycle provides a high-level overview of activities on a criterion from creation to deletion.
+
+![snowballr-criterion-lifecycle.svg](assets/snowballr-criterion-lifecycle.svg)
