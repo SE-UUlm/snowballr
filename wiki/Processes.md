@@ -34,7 +34,7 @@ entities involved.
 
 ![snowballr-project-invitation-process.svg](assets/snowballr-project-invitation-process.svg)
 
-### Project Process
+### Project Lifecycle
 
 The project lifecycle diagram provides a high-level overview of the different stages a project can go through
 within the system. Each box represents a specific state of the project lifecycle. At the top, the corresponding internal
@@ -48,3 +48,25 @@ project is locked to prevent certain changes to the settings, as, for example, c
 that would influence the further process of the SLR.
 
 ![snowballr-project-lifecycle.svg](assets/snowballr-project-lifecycle.svg)
+
+### SLR Process
+
+Integrating the diagrams described above provides a detailed overview of the main workflow: the systematic literature
+review (SLR) process. Before starting an SLR, a user must register an account and verify their email address. Once the
+account is verified, the user can create a project and, if desired, invite collaborators. All collaborators must also
+have verified accounts.
+
+After the project is set up, the project creator — working either alone or together with collaborators — can begin the
+SLR. The SLR has no strict endpoint, but the team should agree on a clear stopping criterion. For example, the process
+may end once the last 100 reviewed papers have all been declined and no further relevant papers are expected to be
+found.
+
+The following diagram illustrates this main workflow in detail. It assumes that the SLR is conducted by two
+collaborators, that the “Maybe” decision option is disabled, and that any disagreement between the two reviewers
+results in the paper being accepted.
+
+![snowballr-slr-process.svg](assets/snowballr-slr-process.svg)
+
+*$^1$ see [user lifecycle](#user-account-lifecycle)
+*$^2$ see [project lifecycle](#project-lifecycle)
+*$^3$ see [project invitation process](#project-invitation-process)
