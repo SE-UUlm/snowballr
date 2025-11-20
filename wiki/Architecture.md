@@ -60,19 +60,19 @@ The following diagram shows a general overview of the system and the technologie
 ![snowballr-technology-diagram.svg](assets/snowballr-technology-diagram.svg)
 
 User requests to the public endpoint [snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/) are
-routed through a _Caddy_ reverse proxy. Caddy manages the access to the internal services and handles TLS termination.
+routed through a _Caddy_ reverse proxy. Caddy manages the routing to internal services and handles TLS termination.
 
 The **SnowballR** frontend is developed in _TypeScript_ using the _SvelteKit_ framework,
 with _Vite_ as the build tool. The initial HTML page is served by the web server, after which the application is
 rendered and executed client-side in the browser. Client-server communication is implemented via _gRPC_ (with Protocol
-buffers), ensuring type-safe interactions for operations such as data retrieval and submission.
+Buffers), ensuring type-safe interactions for operations such as data retrieval and submission.
 
 The backend is written in _Kotlin_ and does not rely on a higher-level server framework.
 _Gradle_ is the build tool used in the backend. The backend encapsulates the application logic and interacts with
-a _PostgreSQL_ database to persist user, project, paper, or other data.
-As _gRPC_ is not natively compatible with browsers (see [here](https://github.com/grpc/grpc-web/discussions/1348) for
-more details), so the _gRPC_ client of the user, an additional _gRPC-Web proxy_ is deployed between the browser and
-the backend.
+a _PostgreSQL_ database to persist user, project, paper, or other data. As _gRPC_ is not natively compatible with
+browsers (see the [gRPC-Web compatibility discussion](https://github.com/grpc/grpc-web/discussions/1348) for more
+details), which contains the _gRPC_ client of the user, an additional _gRPC-Web proxy_ is deployed between the
+browser-based client and the backend.
 
 ## Database Schema
 
