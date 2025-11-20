@@ -52,18 +52,20 @@ that would influence the further process of the SLR.
 ### SLR Process
 
 Integrating the diagrams described above provides a detailed overview of the main workflow: the systematic literature
-review (SLR) process. Before initiating an SLR, a user must register an account and verify their email address.
-After registration, this user can create a project and optionally invite collaborators, who are also required to have
-verified accounts. Once the project is configured, the creator of the project — individually or with collaborators —
-can begin the SLR. There is no strict limit on when the SLR process must end. However, all collaborators should agree
-on a clear stopping criterion — for example, when the last 100 papers have all been declined and no new relevant
-papers are likely to be found.
+review (SLR) process. Before starting an SLR, a user must register an account and verify their email address. Once the
+account is verified, the user can create a project and, if desired, invite collaborators. All collaborators must also
+have verified accounts.
 
-The following diagram shows this main workflow in detail, assuming that the SLR is performed by a team of two
-collaborators, the "Maybe" decision is not possible, and in case both collaborators decide differently, then the paper
-is accepted.
+After the project is set up, the project creator — working either alone or together with collaborators — can begin the
+SLR. The SLR has no strict endpoint, but the team should agree on a clear stopping criterion. For example, the process
+may end once the last 100 reviewed papers have all been declined and no further relevant papers are expected to be
+found.
 
-![snowballr-slr-process](assets/snowballr-slr-process.svg)
+The following diagram illustrates this main workflow in detail. It assumes that the SLR is conducted by two
+collaborators, that the “Maybe” decision option is disabled, and that any disagreement between the two reviewers
+results in the paper being accepted.
+
+![snowballr-slr-process.svg](assets/snowballr-slr-process.svg)
 
 *$^1$ see [user lifecycle](#user-account-lifecycle)
 *$^2$ see [project lifecycle](#project-lifecycle)
