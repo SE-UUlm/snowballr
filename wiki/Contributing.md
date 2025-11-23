@@ -6,7 +6,7 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
 - [Deployment](#deployment)
   - [Service Overview](#service-overview)
   - [Routing](#routing)
-- [Versioning Guideline](#versioning-guideline)
+- [Versioning and Release Guideline](#versioning-and-release-guideline)
 - [Teamscale Integration](#teamscale-integration)
 
 ## Contribution Workflow & Conventions
@@ -14,9 +14,9 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
 ### Workflow
 
 Starting from an issue, we create a branch with the name of the issue (see [Commits & Branches](#commits--branches)).
-It's up to you, whether you create a draft pull request immediately or wait until you are finished with the
+It's up to you whether you create a draft pull request immediately or wait until you are finished with the
 implementation. While creating a draft pull request gives you direct feedback from the CI/CD pipeline, it also clutters
-the pull request list. So it's up to you whether you want to create a draft pull request or not.
+the pull request list.
 
 When starting to work on an issue, ensure that the issue is assigned to you and part of our project SnowballR.
 Furthermore, make sure you set the status to `In progress` and the iteration to the current one (if that is not already
@@ -61,13 +61,15 @@ This project uses [Docker](https://www.docker.com/) for local and production dep
 via [Docker Compose](https://docs.docker.com/compose/), with [Caddy](https://caddyserver.com/) serving as a reverse
 proxy to route HTTP traffic to the appropriate services.
 
-At the moment, deployments are performed nightly, always using the latest version of the API and the current state of
-the `develop` branch of the [frontend](https://github.com/SE-UUlm/snowballr-frontend/tree/develop) and
-[backend](https://github.com/SE-UUlm/snowballr-backend/tree/develop) /
-[mock backend](https://github.com/SE-UUlm/snowballr-mock-backend/tree/main).
+At the moment, we distinguish two deployments.
 
-> **Note:** In the future, the versions should be pinned to and aligned with releases of the system parts to ensure
-> stability and reproducibility.
+- **Production deployment** (`deploy-prod.yml`): The production version of the **SnowballR** application is deployed
+whenever a new version of the application is released in this repository by creating a new tag.
+The production version uses the latest version of the frontend, and the specific, tagged version of the backend.
+- **Development deployment** (`deploy-dev.yml`): The deployment of the development version is performed nightly or
+manually. It always uses the latest version of the frontend as well as backend.
+
+The latest version of the frontend / backend is indicated by the `latest-dev` tag.
 
 The deployment setup requires the following environment variables:
 
@@ -77,29 +79,33 @@ The deployment setup requires the following environment variables:
 
 ### Service Overview
 
-| Service         | Description / usage (short)                    | Port       |
-|-----------------|------------------------------------------------|------------|
-| `caddy`         | Public reverse-proxy & TLS certification       | `80`,`443` |
-| `frontend`      | Production Svelte GUI                          | `8000`     |
-| `frontend-mock` | Development Svelte GUI (testing)               | `8001`     |
-| `api-docs`      | gRPC API documentation site                    | `80`       |
-| `proxy`         | Production gRPC proxy that forwards to backend | `9100`     |
-| `backend`       | Production backend                             | `9000`     |
-| `backend-mock`  | Mock backend                                   | `9101`     |
-| `database`      | PostgreSQL database                            | `5432`     |
+| Service                | Description / usage (short)                                 | Port       |
+|------------------------|-------------------------------------------------------------|------------|
+| `caddy`                | Public reverse-proxy & TLS certification                    | `80`,`443` |
+| `frontend`             | Production Svelte GUI                                       | `8000`     |
+| `frontend-development` | Development Svelte GUI (testing)                            | `8001`     |
+| `api-docs`             | gRPC API documentation site                                 | `80`       |
+| `proxy`                | Production gRPC proxy that forwards to backend              | `9100`     |
+| `proxy-development`    | Development gRPC proxy that forwards to development backend | `9101`     |
+| `backend`              | Production backend                                          | `9000`     |
+| `backend-development`  | Development backend                                         | `9001`     |
+| `database`             | PostgreSQL database for the production backend              | `5432`     |
+| `database-development` | PostgreSQL database for the development backend             | `5432`     |
 
 > **Note:** the _Port_ column lists only container ports, not host-published ports. Only `caddy` and `proxy` publish
-> ports: `80`, `443`, `443/udp` or `9100`, respectively.
+> ports: `80`, `443`, `443/udp` or `9100` / `9101`, respectively.
 
-The `backend-mock` service operates entirely in-memory and does not persist data.
-In contrast, the `backend` service relies on the `database` service (PostgreSQL) for permanent data storage.
-All database files are stored under `${WORK_DIR}/database`.
-The `database` service is not exposed publicly and cannot be accessed directly by external PostgreSQL clients.
+The `backend` / `backend-development` service relies on the `database` / `database-development` service (PostgreSQL)
+for permanent data storage. All database files are stored under `${WORK_DIR}/database` or
+`${WORK_DIR}/database-development`, respectively.
+The database services are not exposed publicly and cannot be accessed directly by external PostgreSQL clients.
+The `*-development` services are used for development as they always use the latest version of the backend
+and frontend and must not be stable and contain testing data.
 
 #### Networks
 
 - `snowballr-network` — Internal bridge network for communication between application services. All services are
-  attached to this network and this network cannot be accessed from outside the Docker environment.
+  attached to this network, and this network cannot be accessed from outside the Docker environment.
 - `snowballr-host` — Bridge network that provides access to the Docker host and external services.
   It is used by the `caddy` service to communicate with external clients and by the `backend` service to interact with
   the host’s email server.
@@ -111,7 +117,7 @@ Two domains are in use: one for the production deployment
 ([snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/)),
 which serves the end-user version of the application, and one for the development deployment
 ([snowballr-dev.informatik.uni-ulm.de](https://snowballr-dev.informatik.uni-ulm.de/)),
-which is used to test new features (currently with the mock backend).
+which is used to test new features (currently with the latest backend and the development profile).
 
 ```mermaid
 flowchart TB
@@ -122,39 +128,79 @@ flowchart TB
     subgraph SN["snowballr-network (internal)"]
         Caddy["caddy<br/>(80 / 443)"]
         Frontend["frontend<br/>(8000)"]
-        FrontendMock["frontend-mock<br/>(8001)"]
-        ApiDocs["api-docs<br/>(80)"]
+        FrontendDev["frontend-development<br/>(8001)"]
         Proxy["proxy<br/>(9100)"]
         Backend["backend<br/>(9000)"]
-        BackendMock["backend-mock<br/>(9101)"]
         Database["database<br/>(5432)"]
+        ProxyDev["proxy-development<br/>(9101)"]
+        BackendDev["backend-development<br/>(9001)"]
+        DatabaseDev["database-development<br/>(5432)"]
+        ApiDocs["api-docs<br/>(80)"]
     end
 
     Mail[Email Server]
 
     %% Connections inside snowballr-network
     Caddy -->|"${PROD_DOMAIN}/"| Frontend
-    Caddy -->|"${DEV_DOMAIN}/"| FrontendMock
-    Caddy -->|"\*/docs/*"| ApiDocs
+    Caddy -->|"${DEV_DOMAIN}/"| FrontendDev
     Caddy -->|"${PROD_DOMAIN}/api/*"| Proxy
-    Caddy -->|"${DEV_DOMAIN}/api/*"| BackendMock
+    Caddy -->|"${DEV_DOMAIN}/api/*"| ProxyDev
+    Caddy -->|"\*/docs/*"| ApiDocs
 
     Proxy --> Backend
     Backend --> Database
 
+    ProxyDev --> BackendDev
+    BackendDev --> DatabaseDev
+
     %% External communications
     Client -->|HTTP / HTTPS| Caddy
     Backend -->|SMTP| Mail
+    BackendDev -->|SMTP| Mail
 ```
 
-## Versioning Guideline
+## Versioning and Release Guideline
 
 For the versioning we follow [Semantic Versioning](https://semver.org/).
-When a new version should be published, document the changes in a changelog (following the guidelines of
-[Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and
-published.
+Whenever a new version of the application should be released, for example, due to new features, important bug fixes,
+or general changes in the frontend or backend, a new release is created.
 
-> **Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
+A new release includes documenting all relevant changes in the _CHANGELOG.md_ and ensuring that the deployment
+configuration in the _compose.yaml_ for the production backend references the desired backend version / tag.
+
+To release a new version of the **SnowballR** web application, follow these steps:
+
+1. Create a release branch for the release:
+
+   ```bash
+   git checkout -b releases/vX.Y.Z
+   ```
+
+   Replace `X`, `Y`, `Z` with the correct version numbers according to semantic versioning.
+
+2. Add an entry to the _CHANGELOG.md_. Prefer using [hallmark](https://github.com/vweevers/hallmark) to add the entry:
+
+   ```bash
+   hallmark cc add major|minor|patch
+   ```
+
+   Follow the guidelines of [Common Changelog](https://common-changelog.org/), i.e., especially use imperative mood.
+
+   > **Note**: To use hallmark install it globally with `npm install -g hallmark`
+
+3. Update the tag of the _snowballr-backend_ image in the _compose.yaml_ to the new version.
+
+4. Push the changes, create a pull request and request a review, so the _CHANGELOG.md_ syntax and content are validated.
+
+5. After the pull request is merged, create a tag with the same version - so "vX.Y.Z" - at the merge commit.
+
+   ```bash
+   git pull main
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
+   ```
+
+   Then the CI automatically creates the release and deploys the new application version to the production server.
 
 ## Teamscale Integration
 
