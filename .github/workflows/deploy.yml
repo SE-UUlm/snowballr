@@ -1,11 +1,11 @@
 name: Reusable Deploy Workflow
 
 on:
-  workflow_call:
-    inputs:
-      profile:
-        required: true
-        type: string
+    workflow_call:
+        inputs:
+            profile:
+                required: true
+                type: string
 
 jobs:
     snowballr-deploy:
