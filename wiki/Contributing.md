@@ -90,7 +90,7 @@ The deployment setup requires the following environment variables:
 | `proxy`                | Production gRPC proxy that forwards to backend              | `9100`     |
 | `proxy-development`    | Development gRPC proxy that forwards to development backend | `9101`     |
 | `backend`              | Production backend                                          | `9000`     |
-| `backend-development`  | Development backend                                         | `9101`     |
+| `backend-development`  | Development backend                                         | `9001`     |
 | `database`             | PostgreSQL database for the production backend              | `5432`     |
 | `database-development` | PostgreSQL database for the development backend             | `5432`     |
 
