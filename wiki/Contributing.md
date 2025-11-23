@@ -100,7 +100,7 @@ for permanent data storage. All database files are stored under `${WORK_DIR}/dat
 `${WORK_DIR}/database-development`, respectively.
 The database services are not exposed publicly and cannot be accessed directly by external PostgreSQL clients.
 The `*-development` services are used for development as they always use the latest version of the backend
-and frontend and must not be stable and contain user data expect for testing data.
+and frontend and must not be stable and contain testing data.
 
 #### Networks
 
@@ -112,7 +112,7 @@ and frontend and must not be stable and contain user data expect for testing dat
 
 ### Routing
 
-Caddy handles incoming HTTP(S) traffic and route requests based on the configured domain and path.
+Caddy handles incoming HTTP(S) traffic and routes requests based on the configured domain and path.
 Two domains are in use: one for the production deployment
 ([snowballr.informatik.uni-ulm.de](https://snowballr.informatik.uni-ulm.de/)),
 which serves the end-user version of the application, and one for the development deployment
@@ -133,7 +133,7 @@ flowchart TB
         Backend["backend<br/>(9000)"]
         Database["database<br/>(5432)"]
         ProxyDev["proxy-development<br/>(9101)"]
-        BackendDev["backend<br/>(9001)"]
+        BackendDev["backend-development<br/>(9001)"]
         DatabaseDev["database-development<br/>(5432)"]
         ApiDocs["api-docs<br/>(80)"]
     end
@@ -166,7 +166,7 @@ Whenever a new version of the application should be released, for example, due t
 or general changes in the frontend or backend, a new release is created.
 
 A new release includes documenting all relevant changes in the _CHANGELOG.md_ and ensuring that the deployment
-configuration in the _compose.yml_ for the production backend references the desired backend version / tag.
+configuration in the _compose.yaml_ for the production backend references the desired backend version / tag.
 
 To release a new version of the **SnowballR** web application, follow these steps:
 
@@ -186,9 +186,9 @@ To release a new version of the **SnowballR** web application, follow these step
 
    Follow the guidelines of [Common Changelog](https://common-changelog.org/), i.e., especially use imperative mood.
 
-   > **Note**: To use hallmark locally install it globally with `npm install -g hallmark`
+   > **Note**: To use hallmark install it globally with `npm install -g hallmark`
 
-3. Update the tag of the _snowballr-backend_ image in the _compose.yml_ to the new version.
+3. Update the tag of the _snowballr-backend_ image in the _compose.yaml_ to the new version.
 
 4. Push the changes, create a pull request and request a review, so the _CHANGELOG.md_ syntax and content are validated.
 
