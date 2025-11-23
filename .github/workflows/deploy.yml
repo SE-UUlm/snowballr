@@ -1,43 +1,43 @@
 name: Reusable Deploy Workflow
 
 on:
-  workflow_call:
-    inputs:
-      profile:
-        required: true
-        type: string
+    workflow_call:
+        inputs:
+            profile:
+                required: true
+                type: string
 
 jobs:
-  snowballr-deploy:
-    name: Deploy (${{ inputs.profile }}) to Remote Server
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    snowballr-deploy:
+        name: Deploy (${{ inputs.profile }}) to Remote Server
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
 
-      - name: Setup SSH
-        run: |
-            mkdir -p ~/.ssh
-            echo "Host *" >> ~/.ssh/config
-            echo -e "\tUserKnownHostsFile /dev/null" >> ~/.ssh/config
-            echo -e "\tStrictHostKeyChecking no" >> ~/.ssh/config
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-            chmod 600 ~/.ssh/id_rsa
+            - name: Setup SSH
+              run: |
+                  mkdir -p ~/.ssh
+                  echo "Host *" >> ~/.ssh/config
+                  echo -e "\tUserKnownHostsFile /dev/null" >> ~/.ssh/config
+                  echo -e "\tStrictHostKeyChecking no" >> ~/.ssh/config
+                  echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+                  chmod 600 ~/.ssh/id_rsa
 
-      # - name: Stop Previous Deployment
-      #   run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- docker compose -p snowballr-deploy down
+            # - name: Stop Previous Deployment
+            #   run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- docker compose -p snowballr-deploy down
 
-      - name: Copy Config Files
-        run: scp ./{Caddyfile,Dockerfile.proxy,compose.yaml} "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}:${{ vars.WORK_DIR }}/"
+            - name: Copy Config Files
+              run: scp ./{Caddyfile,Dockerfile.proxy,compose.yaml} "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}:${{ vars.WORK_DIR }}/"
 
-      - name: Login on Remote Machine
-        run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'docker login ghcr.io -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}"'
+            - name: Login on Remote Machine
+              run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'docker login ghcr.io -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}"'
 
-      - name: Start Docker Compose with profile '${{ inputs.profile }}' on Remote Machine
-        run: |
-            ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" --
-            'cd "${{ vars.WORK_DIR }}" &&
-            export WORK_DIR="${{ vars.WORK_DIR }}" &&
-            export PROD_DOMAIN="${{ vars.REMOTE_DOMAIN }}" &&
-            export DEV_DOMAIN="${{ vars.REMOTE_DEV_DOMAIN }}" &&
-            docker compose --profile ${{ inputs.profile }} up -d --pull always'
+            - name: Start Docker Compose with profile '${{ inputs.profile }}' on Remote Machine
+              run: |
+                  ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" --
+                  'cd "${{ vars.WORK_DIR }}" &&
+                  export WORK_DIR="${{ vars.WORK_DIR }}" &&
+                  export PROD_DOMAIN="${{ vars.REMOTE_DOMAIN }}" &&
+                  export DEV_DOMAIN="${{ vars.REMOTE_DEV_DOMAIN }}" &&
+                  docker compose --profile ${{ inputs.profile }} up -d --pull always'

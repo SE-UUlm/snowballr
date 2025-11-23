@@ -1,11 +1,11 @@
 name: Deploy Production
 
 on:
-  push:
-    tags: ["v*.*.*"]
+    push:
+        tags: [ "v*.*.*" ]
 
 jobs:
-  snowballr-deploy-prod:
-    uses: ./.github/workflows/deploy.yml
-    with:
-      profile: production
+    snowballr-deploy-prod:
+        uses: ./.github/workflows/deploy.yml
+        with:
+            profile: production
