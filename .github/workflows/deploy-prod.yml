@@ -9,3 +9,4 @@ jobs:
         uses: ./.github/workflows/deploy.yml
         with:
             profile: production
+        secrets: inherit
