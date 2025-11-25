@@ -49,6 +49,12 @@ that would influence the further process of the SLR.
 
 ![snowballr-project-lifecycle.svg](assets/snowballr-project-lifecycle.svg)
 
+### Criterion Lifecycle
+
+The criterion lifecycle provides a high-level overview of activities on a criterion from creation to deletion.
+
+![snowballr-criterion-lifecycle.svg](assets/snowballr-criterion-lifecycle.svg)
+
 ### SLR Process
 
 Integrating the diagrams described above provides a detailed overview of the main workflow: the systematic literature
@@ -70,9 +76,4 @@ results in the paper being accepted.
 *$^1$ see [user lifecycle](#user-account-lifecycle)
 *$^2$ see [project lifecycle](#project-lifecycle)
 *$^3$ see [project invitation process](#project-invitation-process)
-
-### Criterion Lifecycle
-
-The criterion lifecycle provides a high-level overview of activities on a criterion from creation to deletion.
-
-![snowballr-criterion-lifecycle.svg](assets/snowballr-criterion-lifecycle.svg)
+*$^4$ see [criterion-lifecycle](#criterion-lifecycle)
