@@ -5,6 +5,7 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
   - [Commits \& Branches](#commits--branches)
 - [Deployment](#deployment)
   - [Service Overview](#service-overview)
+    - [Networks](#networks)
   - [Routing](#routing)
 - [Versioning Guideline](#versioning-guideline)
 - [Teamscale Integration](#teamscale-integration)
