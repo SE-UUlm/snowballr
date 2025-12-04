@@ -3,7 +3,7 @@ name: Deploy
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 3 * * *" # Every night at 03:00 AM
+        - cron: "0 5 * * *" # Every night at 05:00 AM
     push:
         branches: ["main"]
 
