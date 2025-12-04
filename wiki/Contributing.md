@@ -5,8 +5,10 @@ On this page, we explain how to contribute to the SnowballR project. We cover th
   - [Commits \& Branches](#commits--branches)
 - [Deployment](#deployment)
   - [Service Overview](#service-overview)
+    - [Networks](#networks)
   - [Routing](#routing)
 - [Versioning Guideline](#versioning-guideline)
+  - [Release Procedure](#release-procedure)
 - [Teamscale Integration](#teamscale-integration)
 
 ## Contribution Workflow & Conventions
@@ -78,7 +80,7 @@ The deployment setup requires the following environment variables:
 ### Service Overview
 
 | Service         | Description / usage (short)                    | Port       |
-|-----------------|------------------------------------------------|------------|
+| --------------- | ---------------------------------------------- | ---------- |
 | `caddy`         | Public reverse-proxy & TLS certification       | `80`,`443` |
 | `frontend`      | Production Svelte GUI                          | `8000`     |
 | `frontend-mock` | Development Svelte GUI (testing)               | `8001`     |
@@ -154,7 +156,48 @@ When a new version should be published, document the changes in a changelog (fol
 [Common Changelog](https://common-changelog.org/)), tag the code in Git and a release will be automatically created and
 published.
 
-> **Note:** At the moment only the [API](https://github.com/SE-UUlm/snowballr-api) is correctly versioned.
+> **Note:** At the moment the [Frontend](https://github.com/SE-UUlm/snowballr-frontend) is not versioned.
+
+### Release Procedure
+
+When a new version should be released, follow these steps:
+
+1. Create a release branch for the release:
+
+   ```bash
+   git checkout -b releases/vX.Y.Z
+   ```
+
+   Replace `X`, `Y`, `Z` with the correct version numbers according to [Semantic Versioning](https://semver.org/).
+
+2. Add an entry to the _CHANGELOG.md_. Prefer using [hallmark](https://github.com/vweevers/hallmark) to add the entry:
+
+   ```bash
+   hallmark cc add major|minor|patch
+   ```
+
+   Follow the guidelines of [Common Changelog](https://common-changelog.org/). Especially use imperative mood.
+
+   > **Note**: To use hallmark install it globally with `npm install -g hallmark`
+
+3. Commit and push changes to the _CHANGELOG.md_.
+
+4. Make sure that the repository uses the
+   [`Markdown Lint`](https://github.com/SE-UUlm/snowballr-ci/wiki/Getting-Started#markdown-lint) action and the
+   [`Release`](https://github.com/SE-UUlm/snowballr-ci/wiki/Getting-Started#release) workflow from our CI repository to
+   ensure a consistent changelog format and automatic release creation.
+
+5. Create a pull request and request a review.
+
+6. After the pull request is merged, create a tag with the same version - so "vX.Y.Z" - at the merge commit.
+
+   ```bash
+   git pull main|develop
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
+   ```
+
+7. Then the CI automatically creates a new release.
 
 ## Teamscale Integration
 
