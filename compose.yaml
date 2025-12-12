@@ -92,7 +92,7 @@ services:
             - development
 
     api-docs:
-        image: ghcr.io/se-uulm/snowballr-api/docs:main
+        image: ghcr.io/se-uulm/snowballr-api:latest
         hostname: "api-docs"
         networks:
             - snowballr-network
