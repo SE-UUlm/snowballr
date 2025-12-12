@@ -1,3 +1,9 @@
+<div align="center">
+  <picture>
+    <img alt="SnowballR Logo" src="images/logo-with-text/snowballr-logo-with-text_512x1920.png" width="700"/>
+  </picture>
+</div>
+
 # SnowballR
 
 Welcome to the **SnowballR** project! This page will give you a quick overview over the project.
