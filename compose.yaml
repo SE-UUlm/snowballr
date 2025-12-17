@@ -1,84 +1,126 @@
-
 services:
-  database:
-    image: postgres:16.1-alpine3.19
-    env_file: database.env
-    volumes:
-        - ${WORK_DIR:?error}/database:/var/lib/postgresql/data
-    networks:
-        - snowballr-network
+    database:
+        image: postgres:16.1-alpine3.19
+        env_file: database.env
+        volumes:
+            - ${WORK_DIR:?error}/database:/var/lib/postgresql/data
+        networks:
+            - snowballr-network
+        profiles:
+            - production
 
-  frontend-mock:
-    image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
-    env_file: frontend-mock.env
-    networks:
-    - snowballr-network
+    backend:
+        image: ghcr.io/se-uulm/snowballr-backend:0.1.0 # update to v<major>.<minor>.<patch> when using the next backend version and remove this comment
+        env_file: backend.env
+        networks:
+            - snowballr-network
+            - snowballr-host # to communicate with the email server
+        profiles:
+            - production
 
-  frontend:
-    image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
-    env_file: frontend.env
-    networks:
-      - snowballr-network
+    proxy:
+        build:
+            context: .
+            dockerfile: Dockerfile.proxy
+        ports:
+            - "9100:9100"
+        command:
+            # Point to the backend on the machine's host
+            - --backend_addr=backend:9000
+            - --allowed_origins=http?://${PROD_DOMAIN}
+            - --run_tls_server=false # Don't require TLS Handled by proxy
+            - --server_http_debug_port=9100
+            - --server_http_max_write_timeout=30s
+            - --server_http_max_read_timeout=30s
+        networks:
+            - snowballr-network
+        profiles:
+            - production
 
-  api-docs:
-    image: ghcr.io/se-uulm/snowballr-api/docs:main
-    hostname: "api-docs"
-    networks:
-      - snowballr-network
+    frontend:
+        image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
+        env_file: frontend.env
+        networks:
+            - snowballr-network
+        profiles:
+            - production
 
-  backend-mock:
-    image: ghcr.io/se-uulm/snowballr-mock-backend:main
-    env_file: backend-mock.env
-    networks:
-        - snowballr-network
+    database-development:
+        image: postgres:16.1-alpine3.19
+        env_file: database-development.env
+        volumes:
+            - ${WORK_DIR:?error}/database-development:/var/lib/postgresql/data
+        networks:
+            - snowballr-network
+        profiles:
+            - development
 
-  backend:
-    image: ghcr.io/se-uulm/snowballr-backend:latest-dev
-    env_file: backend.env
-    networks:
-      - snowballr-network
-      - snowballr-host # to communicate with the email server
-  caddy:
-    image: caddy:2.10.0
-    environment:
-      PROD_DOMAIN: ${PROD_DOMAIN:?error}
-      DEV_DOMAIN: ${DEV_DOMAIN:?error}
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    volumes:
-      - ${WORK_DIR:?error}/Caddyfile:/etc/caddy/Caddyfile
-      - ${WORK_DIR:?error}/runtime/caddy/data:/data
-      - ${WORK_DIR:?error}/runtime/caddy/config:/config
-    networks:
-      - snowballr-network
-      - snowballr-host # to communicate with the client
+    backend-development:
+        image: ghcr.io/se-uulm/snowballr-backend:latest-dev
+        env_file: backend-development.env
+        networks:
+            - snowballr-network
+            - snowballr-host # to communicate with the email server
+        profiles:
+            - development
 
-  proxy:
-    build:
-        context: .
-        dockerfile: Dockerfile.proxy
-    ports:
-        - "9100:9100"
-    command:
-        # Point to the backend on the machine's host
-        - --backend_addr=backend:9000
-        - --allowed_origins=http?://${PROD_DOMAIN}
-        - --run_tls_server=false # Don't require TLS Handled by proxy
-        - --server_http_debug_port=9100
-        - --server_http_max_write_timeout=30s
-        - --server_http_max_read_timeout=30s
-    networks:
-        - snowballr-network
+    proxy-development:
+        build:
+            context: .
+            dockerfile: Dockerfile.proxy
+        ports:
+            - "9101:9101"
+        command:
+            # Point to the backend on the machine's host
+            - --backend_addr=backend-development:9001
+            - --allowed_origins=http?://${DEV_DOMAIN}
+            - --run_tls_server=false # Don't require TLS Handled by proxy
+            - --server_http_debug_port=9101
+            - --server_http_max_write_timeout=30s
+            - --server_http_max_read_timeout=30s
+        networks:
+            - snowballr-network
+        profiles:
+            - development
+
+    frontend-development:
+        image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
+        env_file: frontend-development.env
+        networks:
+            - snowballr-network
+        profiles:
+            - development
+
+    api-docs:
+        image: ghcr.io/se-uulm/snowballr-api:latest
+        hostname: "api-docs"
+        networks:
+            - snowballr-network
+
+    caddy:
+        image: caddy:2.10.0
+        environment:
+            PROD_DOMAIN: ${PROD_DOMAIN:?error}
+            DEV_DOMAIN: ${DEV_DOMAIN:?error}
+        ports:
+            - "80:80"
+            - "443:443"
+            - "443:443/udp"
+        volumes:
+            - ${WORK_DIR:?error}/Caddyfile:/etc/caddy/Caddyfile
+            - ${WORK_DIR:?error}/runtime/caddy/data:/data
+            - ${WORK_DIR:?error}/runtime/caddy/config:/config
+        networks:
+            - snowballr-network
+            - snowballr-host # to communicate with the client
 
 networks:
-  snowballr-network:
-    name: snowballr-network
-    driver: bridge
-    internal: true
+    snowballr-network:
+        name: snowballr-network
+        driver: bridge
+        internal: true
 
-  snowballr-host:
-    name: snowballr-host
-    driver: bridge
-    internal: false
+    snowballr-host:
+        name: snowballr-host
+        driver: bridge
+        internal: false

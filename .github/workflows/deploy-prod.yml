@@ -1,0 +1,12 @@
+name: Deploy Production
+
+on:
+    push:
+        tags: [ "v*.*.*" ]
+
+jobs:
+    snowballr-deploy-prod:
+        uses: ./.github/workflows/deploy.yml
+        with:
+            profile: production
+        secrets: inherit

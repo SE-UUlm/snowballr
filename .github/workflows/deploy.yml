@@ -1,15 +1,15 @@
-name: Deploy
+name: Reusable Deploy Workflow
 
 on:
-    workflow_dispatch:
-    schedule:
-        - cron: "0 5 * * *" # Every night at 05:00 AM
-    push:
-        branches: ["main"]
+    workflow_call:
+        inputs:
+            profile:
+                required: true
+                type: string
 
 jobs:
     snowballr-deploy:
-        name: Deploy to Remote Server
+        name: Deploy (${{ inputs.profile }}) to Remote Server
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -33,5 +33,8 @@ jobs:
             - name: Login on Remote Machine
               run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'docker login ghcr.io -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}"'
 
-            - name: Start Docker Compose on Remote Machine
-              run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'cd "${{ vars.WORK_DIR }}" && export WORK_DIR="${{ vars.WORK_DIR }}" && export PROD_DOMAIN="${{ vars.REMOTE_DOMAIN }}" && export DEV_DOMAIN="${{ vars.REMOTE_DEV_DOMAIN }}" && docker compose up -d --pull always'
+            - name: Setup environment variables
+              run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'echo export WORK_DIR="${{ vars.WORK_DIR }}" && export PROD_DOMAIN="${{ vars.REMOTE_DOMAIN }}" && export DEV_DOMAIN="${{ vars.REMOTE_DEV_DOMAIN }}"'
+
+            - name: Start Docker Compose with profile '${{ inputs.profile }}' on Remote Machine
+              run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'cd "${{ vars.WORK_DIR }}" && docker compose --profile ${{ inputs.profile }} up -d --pull always'
