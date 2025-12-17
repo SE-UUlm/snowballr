@@ -10,7 +10,7 @@ services:
             - production
 
     backend:
-        image: ghcr.io/se-uulm/snowballr-backend:0.1.0
+        image: ghcr.io/se-uulm/snowballr-backend:0.1.0 # update to v<major>.<minor>.<patch> when using the next backend version and remove this comment
         env_file: backend.env
         networks:
             - snowballr-network
