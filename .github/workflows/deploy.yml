@@ -24,17 +24,26 @@ jobs:
                   echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
                   chmod 600 ~/.ssh/id_rsa
 
-            # - name: Stop Previous Deployment
-            #   run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- docker compose -p snowballr-deploy down
-
             - name: Copy Config Files
               run: scp ./{Caddyfile,Dockerfile.proxy,compose.yaml} "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}:${{ vars.WORK_DIR }}/"
 
-            - name: Login on Remote Machine
-              run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'docker login ghcr.io -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}"'
+            - name: Deploy '${{ inputs.profile }}' Profile on Remote Machine
+              uses: appleboy/ssh-action@v1
+              env:
+                  WORK_DIR: ${{ vars.WORK_DIR }}
+                  PROD_DOMAIN: ${{ vars.REMOTE_DOMAIN }}
+                  DEV_DOMAIN: ${{ vars.REMOTE_DEV_DOMAIN }}
+              with:
+                  host: ${{ vars.REMOTE_DOMAIN }}
+                  username: ${{ vars.REMOTE_USER }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  envs: WORK_DIR,PROD_DOMAIN,DEV_DOMAIN
+                  script: |
+                      cd $WORK_DIR
 
-            - name: Setup environment variables
-              run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'echo export WORK_DIR="${{ vars.WORK_DIR }}" && export PROD_DOMAIN="${{ vars.REMOTE_DOMAIN }}" && export DEV_DOMAIN="${{ vars.REMOTE_DEV_DOMAIN }}"'
+                      # GHCR Login
+                      echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
-            - name: Start Docker Compose with profile '${{ inputs.profile }}' on Remote Machine
-              run: ssh "${{ vars.REMOTE_USER }}@${{ vars.REMOTE_DOMAIN }}" -- 'cd "${{ vars.WORK_DIR }}" && docker compose --profile ${{ inputs.profile }} up -d --pull always'
+                      # Start containers
+                      echo "Starting '${{ inputs.profile }}' deployment"
+                      docker compose --profile "${{ inputs.profile }}" up -d --pull always --remove-orphans
