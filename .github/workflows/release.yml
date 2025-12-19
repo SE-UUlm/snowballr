@@ -1,0 +1,11 @@
+name: Release
+on:
+    push:
+        tags: ["v*.*.*"]
+
+jobs:
+    release:
+        name: Release
+        permissions:
+            contents: write
+        uses: SE-UUlm/snowballr-ci/.github/workflows/release.yml@v1.0.0
