@@ -1,7 +1,34 @@
 <div align="center">
-  <picture>
-    <img alt="SnowballR Logo" src="images/logo-with-text/snowballr-logo-with-text_512x1920.png" width="700"/>
-  </picture>
+    <picture>
+        <img alt="SnowballR Logo" src="images/logo-with-text/snowballr-logo-with-text_512x1920.png" width="700"/>
+    </picture>
+</div>
+
+<div align="center">
+    <a href="https://github.com/SE-UUlm/snowballr/releases/latest">
+        <img alt="Version" src="https://img.shields.io/github/v/release/SE-UUlm/snowballr?label=Version&color=light-green">
+    </a>
+    <a href="https://github.com/SE-UUlm/snowballr/actions/workflows/deploy-prod.yml">
+        <img alt="Production Deployment Status" src="https://img.shields.io/github/actions/workflow/status/SE-UUlm/snowballr/deploy-prod.yml?logo=github&label=Production%20Deployment">
+    </a>
+    <a href="https://github.com/SE-UUlm/snowballr/actions/workflows/deploy-dev.yml">
+        <img alt="Development Deployment Status" src="https://img.shields.io/github/actions/workflow/status/SE-UUlm/snowballr/deploy-dev.yml?logo=github&label=Development%20Deployment">
+    </a>
+    <a href="https://snowballr.informatik.uni-ulm.de">
+        <img alt="Production Website" src="https://custom-icon-badges.demolab.com/badge/Production_Website-gray?logo=snowballr">
+    </a>
+    <a href="https://snowballr-dev.informatik.uni-ulm.de">
+        <img alt="Development Website" src="https://custom-icon-badges.demolab.com/badge/Development_Website-gray?logo=snowballr">
+    </a>
+    <a href="https://github.com/SE-UUlm/snowballr/wiki">
+        <img alt="GitHub Wiki" src="https://img.shields.io/badge/Wiki-grey?logo=github">
+    </a>
+    <a href="https://deepwiki.com/SE-UUlm/snowballr">
+        <img alt="Ask DeepWiki" src="https://deepwiki.com/badge.svg">
+    </a>
+    <a href="https://github.com/SE-UUlm/snowballr/blob/main/LICENSE">
+        <img alt="License" src="https://img.shields.io/github/license/SE-UUlm/snowballr?label=License">
+    </a>
 </div>
 
 # SnowballR
