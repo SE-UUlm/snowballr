@@ -16,7 +16,7 @@ jobs:
               uses: actions/checkout@v6
 
             - name: Lint Markdown
-              uses: SE-UUlm/snowballr-ci/src/lint-md@v1.0.0
+              uses: SE-UUlm/snowballr-ci/src/lint-md@v1
               with:
                   markdownlint-config-path: markdownlint.json
                   source-branch: main
@@ -34,4 +34,4 @@ jobs:
               uses: actions/checkout@v6
 
             - name: Publish Wiki
-              uses: SE-UUlm/snowballr-ci/src/wiki-publish@v1.0.0
+              uses: SE-UUlm/snowballr-ci/src/wiki-publish@v1
