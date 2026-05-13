@@ -8,15 +8,27 @@ services:
             - snowballr-network
         profiles:
             - production
+        healthcheck:
+            test: "pg_isready -U postgres"
+            start_period: 4s
+            start_interval: 2s
 
     backend:
         image: ghcr.io/se-uulm/snowballr-backend:0.1.0 # update to v<major>.<minor>.<patch> when using the next backend version and remove this comment
         env_file: backend.env
+        volumes:
+            - ./plugins-prod:/app/plugins
         networks:
             - snowballr-network
             - snowballr-host # to communicate with the email server
         profiles:
             - production
+        depends_on:
+            database:
+                condition: service_healthy
+        healthcheck:
+            start_period: 4s
+            start_interval: 2s
 
     proxy:
         build:
@@ -36,6 +48,9 @@ services:
             - snowballr-network
         profiles:
             - production
+        depends_on:
+            backend:
+                condition: service_healthy
 
     frontend:
         image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
@@ -54,15 +69,27 @@ services:
             - snowballr-network
         profiles:
             - development
+        healthcheck:
+            test: "pg_isready -U postgres"
+            start_period: 4s
+            start_interval: 2s
 
     backend-development:
         image: ghcr.io/se-uulm/snowballr-backend:latest-dev
         env_file: backend-development.env
+        volumes:
+            - ./plugins-dev:/app/plugins
         networks:
             - snowballr-network
             - snowballr-host # to communicate with the email server
         profiles:
             - development
+        depends_on:
+            database-development:
+                condition: service_healthy
+        healthcheck:
+            start_period: 4s
+            start_interval: 2s
 
     proxy-development:
         build:
@@ -82,6 +109,9 @@ services:
             - snowballr-network
         profiles:
             - development
+        depends_on:
+            backend-development:
+                condition: service_healthy
 
     frontend-development:
         image: ghcr.io/se-uulm/snowballr-frontend:latest-dev
