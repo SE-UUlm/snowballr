@@ -21,6 +21,7 @@ jobs:
                   markdownlint-config-path: markdownlint.json
                   source-branch: main
                   ignore-links: "https://dl.acm.org/doi/*,https://snowballr.informatik.uni-ulm.de/*"
+                  ignore-paths: "AGENTS.md,CLAUDE.md"
 
     publish-wiki:
         name: Publish Wiki
