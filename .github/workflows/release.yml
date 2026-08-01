@@ -8,4 +8,4 @@ jobs:
         name: Release
         permissions:
             contents: write
-        uses: SE-UUlm/snowballr-ci/.github/workflows/release.yml@v1.1.0
+        uses: SE-UUlm/snowballr-ci/.github/workflows/release.yml@v1.2.0
