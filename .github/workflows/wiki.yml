@@ -22,6 +22,7 @@ jobs:
                   source-branch: main
                   ignore-links: "https://dl.acm.org/doi/*,https://snowballr.informatik.uni-ulm.de/*"
                   ignore-paths: "AGENTS.md,CLAUDE.md"
+                  warn-links: "https://snowballr-dev.informatik.uni-ulm.de*,https://deepwiki.com/*"
 
     publish-wiki:
         name: Publish Wiki
