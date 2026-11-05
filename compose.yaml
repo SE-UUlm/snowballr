@@ -27,8 +27,8 @@ services:
             database:
                 condition: service_healthy
         healthcheck:
-            start_period: 4s
-            start_interval: 2s
+            start_period: 4s # wait 4s to let backend get ready for accepting connections
+            start_interval: 2s # start first health check after 2s
 
     proxy:
         build:
@@ -88,8 +88,9 @@ services:
             database-development:
                 condition: service_healthy
         healthcheck:
-            start_period: 4s
-            start_interval: 2s
+            test: wget --no-verbose --tries=1 --spider http://localhost:8090/actuator/health || exit 1
+            start_period: 4s # wait 4s to let backend get ready for accepting connections
+            start_interval: 2s # start first health check after 2s
 
     proxy-development:
         build:
