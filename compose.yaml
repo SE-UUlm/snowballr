@@ -122,12 +122,6 @@ services:
         profiles:
             - development
 
-    api-docs:
-        image: ghcr.io/se-uulm/snowballr-api:latest
-        hostname: "api-docs"
-        networks:
-            - snowballr-network
-
     caddy:
         image: caddy:2.10.0
         environment:
