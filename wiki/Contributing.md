@@ -81,18 +81,17 @@ The deployment setup requires the following environment variables:
 
 ### Service Overview
 
-| Service                | Description / usage (short)                                 | Port       |
-|------------------------|-------------------------------------------------------------|------------|
-| `caddy`                | Public reverse-proxy & TLS certification                    | `80`,`443` |
-| `frontend`             | Production Svelte GUI                                       | `8000`     |
-| `frontend-development` | Development Svelte GUI (testing)                            | `8001`     |
-| `api-docs`             | gRPC API documentation site                                 | `80`       |
-| `proxy`                | Production gRPC proxy that forwards to backend              | `9100`     |
-| `proxy-development`    | Development gRPC proxy that forwards to development backend | `9101`     |
-| `backend`              | Production backend                                          | `9000`     |
-| `backend-development`  | Development backend                                         | `9001`     |
-| `database`             | PostgreSQL database for the production backend              | `5432`     |
-| `database-development` | PostgreSQL database for the development backend             | `5432`     |
+| Service                | Description / usage (short)                                 | Port          |
+|------------------------|-------------------------------------------------------------|---------------|
+| `caddy`                | Public reverse-proxy & TLS certification                    | `80`,`443`    |
+| `frontend`             | Production Svelte GUI                                       | `8000`        |
+| `frontend-development` | Development Svelte GUI (testing)                            | `8001`        |
+| `proxy`                | Production gRPC proxy that forwards to backend              | `9100`        |
+| `proxy-development`    | Development gRPC proxy that forwards to development backend | `9101`        |
+| `backend`              | Production backend (gRPC, REST incl. gRPC API docs)         | `9000`,`8090` |
+| `backend-development`  | Development backend (gRPC, REST incl. gRPC API docs)        | `9001`,`8090` |
+| `database`             | PostgreSQL database for the production backend              | `5432`        |
+| `database-development` | PostgreSQL database for the development backend             | `5432`        |
 
 > **Note:** the _Port_ column lists only container ports, not host-published ports. Only `caddy` and `proxy` publish
 > ports: `80`, `443`, `443/udp` or `9100` / `9101`, respectively.
@@ -121,6 +120,11 @@ which serves the end-user version of the application, and one for the developmen
 ([snowballr-dev.informatik.uni-ulm.de](https://snowballr-dev.informatik.uni-ulm.de/)),
 which is used to test new features (currently with the latest backend and the development profile).
 
+The gRPC API documentation is generated and served by the backend itself under `/grpc-docs/` on its REST port
+(`8090`). Caddy exposes it publicly as `/docs/` on each domain and forwards requests to the backend of the same
+deployment, so the documentation always matches the deployed backend version. No other path of the backend's REST
+server is exposed.
+
 ```mermaid
 flowchart TB
     %% Clients
@@ -132,12 +136,11 @@ flowchart TB
         Frontend["frontend<br/>(8000)"]
         FrontendDev["frontend-development<br/>(8001)"]
         Proxy["proxy<br/>(9100)"]
-        Backend["backend<br/>(9000)"]
+        Backend["backend<br/>(9000 / 8090)"]
         Database["database<br/>(5432)"]
         ProxyDev["proxy-development<br/>(9101)"]
-        BackendDev["backend-development<br/>(9001)"]
+        BackendDev["backend-development<br/>(9001 / 8090)"]
         DatabaseDev["database-development<br/>(5432)"]
-        ApiDocs["api-docs<br/>(80)"]
     end
 
     Mail[Email Server]
@@ -147,7 +150,8 @@ flowchart TB
     Caddy -->|"${DEV_DOMAIN}/"| FrontendDev
     Caddy -->|"${PROD_DOMAIN}/api/*"| Proxy
     Caddy -->|"${DEV_DOMAIN}/api/*"| ProxyDev
-    Caddy -->|"\*/docs/*"| ApiDocs
+    Caddy -->|"${PROD_DOMAIN}/docs/*"| Backend
+    Caddy -->|"${DEV_DOMAIN}/docs/*"| BackendDev
 
     Proxy --> Backend
     Backend --> Database

@@ -64,8 +64,9 @@ the links to the according repository:
 - The **[frontend](https://github.com/SE-UUlm/snowballr-frontend)** implements a graphical user interface (GUI) for
   interacting with the application. It communicates with the backend via [gRPC](https://grpc.io/) to fetch data, trigger
   actions, and update the interface based on the system state.
-- The **[API](https://github.com/SE-UUlm/snowballr-api)** exposes the implemented backend functionality and provides a
-  structured, type-safe gRPC interface for communication between clients and the backend.
+- The **[API](https://github.com/SE-UUlm/snowballr-backend/tree/develop/api/grpc)** (part of the backend repository)
+  exposes the implemented backend functionality and provides a structured, type-safe gRPC interface for communication
+  between clients and the backend.
 - The **[backend](https://github.com/SE-UUlm/snowballr-backend)** listens for incoming gRPC requests, processes the
   requested operations, and responds with appropriate gRPC messages based on the application logic.
 

@@ -41,7 +41,7 @@ typed interface.
 > **Note:** The architecture of the backend is described in more detail in the
 > [backend wiki](https://github.com/SE-UUlm/snowballr-backend/wiki/Architecture).
 
-### [API](https://github.com/SE-UUlm/snowballr-api)
+### [API](https://github.com/SE-UUlm/snowballr-backend/tree/develop/api/grpc)
 
 - Uses [gRPC](https://grpc.io/) for the communication between frontend and backend.
 - Protocol Buffers define the communication schema.

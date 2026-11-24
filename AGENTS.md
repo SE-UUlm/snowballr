@@ -12,7 +12,7 @@ page.
 
 - Organization: https://github.com/SE-UUlm
 - SnowballR (umbrella repo): https://github.com/SE-UUlm/snowballr
-- SnowballR API: https://github.com/SE-UUlm/snowballr-api
+- SnowballR API (archived, now part of the backend under `api/grpc`): https://github.com/SE-UUlm/snowballr-api
 - SnowballR Backend: https://github.com/SE-UUlm/snowballr-backend
 - SnowballR Frontend: https://github.com/SE-UUlm/snowballr-frontend
 - SnowballR CI: https://github.com/SE-UUlm/snowballr-ci
@@ -73,8 +73,8 @@ page.
 
 ## Architecture and deployment
 
-- **System overview:** Browser → Caddy → frontend / api-docs / gRPC-web proxy → backend → PostgreSQL
-  (wiki/Architecture.md, wiki/Contributing.md#routing).
+- **System overview:** Browser → Caddy → frontend / gRPC-web proxy → backend → PostgreSQL; Caddy also
+  routes `/docs/*` to the backend's `/grpc-docs/*` (wiki/Architecture.md, wiki/Contributing.md#routing).
 - **Two parallel stacks:** `production` (tagged backend version, stable) and `development` (`latest-dev` backend and
   frontend, may be unstable) are defined in `compose.yaml` via profiles.
 - **Networks:** `snowballr-network` is internal-only; `snowballr-host` is used by `caddy` (external clients) and the

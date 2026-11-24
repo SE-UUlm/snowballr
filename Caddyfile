@@ -1,13 +1,17 @@
+# Serves the gRPC API documentation, which the backend serves under /grpc-docs/, publicly under /docs/
+# Argument: address of the backend's HTTP (REST) server
 (docs-config) {
 	handle_path /docs/* {
-		reverse_proxy http://api-docs
+		rewrite / /grpc-docs/index.html
+		rewrite * /grpc-docs{uri}
+		reverse_proxy {args[0]}
 	}
 	redir /docs /docs/ permanent
 }
 
 # Reverse proxy configuration for production setup
 {$PROD_DOMAIN} {
-	import docs-config
+	import docs-config http://backend:8090
 
 	handle_path /api/* {
 		reverse_proxy http://proxy:9100
@@ -18,7 +22,7 @@
 
 # Reverse proxy configuration for development setup
 {$DEV_DOMAIN} {
-	import docs-config
+	import docs-config http://backend-development:8090
 
 	handle_path /api/* {
 		reverse_proxy http://proxy-development:9101
